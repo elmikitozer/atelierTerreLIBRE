@@ -6,6 +6,8 @@ import {
   Newsreader,
   JetBrains_Mono,
 } from "next/font/google";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const archivoBlack = Archivo_Black({
@@ -55,8 +57,10 @@ export default function RootLayout({
       lang="fr"
       className={`${archivoBlack.variable} ${archivo.variable} ${manrope.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-cream text-ink font-manrope antialiased">
-        {children}
+      <body className="bg-cream text-ink font-manrope antialiased flex flex-col min-h-screen">
+        <Header />
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );
