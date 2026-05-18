@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ─── Palette Atelier Terre Libre ─── */
+  --color-yellow: #f1dd6a;
+  --color-yellow-soft: #f7ecb1;
+  --color-cream: #faf7ee;
+  --color-ink: #1a1814;
+  --color-mute: #6a6358;
+  --color-photo: #d6cfbf;
+
+  /* ─── Typographies ─── */
+  --font-archivo-black: var(--nf-archivo-black);
+  --font-archivo: var(--nf-archivo);
+  --font-manrope: var(--nf-manrope);
+  --font-news: var(--nf-newsreader);
+  --font-mono: var(--nf-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Tailles fluides des mots-marque ─── */
+:root {
+  --fs-brand: clamp(4rem, 17vw, 14rem);
+  --fs-page-name: clamp(3.5rem, 15vw, 13rem);
+  --fs-page-events: clamp(3rem, 12.5vw, 11rem);
 }

@@ -1,65 +1,163 @@
-import Image from "next/image";
+import LogoMark from "@/components/ui/LogoMark";
 
-export default function Home() {
+const PALETTE = [
+  { label: "yellow", hex: "#f1dd6a", bg: "bg-yellow", text: "text-ink" },
+  { label: "yellow-soft", hex: "#f7ecb1", bg: "bg-yellow-soft", text: "text-ink" },
+  { label: "cream", hex: "#faf7ee", bg: "bg-cream", text: "text-ink" },
+  { label: "ink", hex: "#1a1814", bg: "bg-ink", text: "text-cream" },
+  { label: "mute", hex: "#6a6358", bg: "bg-mute", text: "text-cream" },
+  { label: "photo", hex: "#d6cfbf", bg: "bg-photo", text: "text-ink" },
+] as const;
+
+const PAGE_NAMES = [
+  { name: "pratiquer", fsVar: "--fs-page-name" },
+  { name: "événements", fsVar: "--fs-page-events" },
+  { name: "l'atelier", fsVar: "--fs-page-name" },
+  { name: "contact", fsVar: "--fs-page-name" },
+] as const;
+
+const FONTS = [
+  {
+    label: "Archivo Black — titres, logotype",
+    cls: "font-archivo-black",
+    sample: "Libérez votre créativité.",
+    size: "text-4xl",
+  },
+  {
+    label: "Archivo — contenu factuel",
+    cls: "font-archivo",
+    sample: "17 rue de Vintimille, 75009 Paris",
+    size: "text-2xl",
+  },
+  {
+    label: "Manrope — UI, boutons, corps",
+    cls: "font-manrope",
+    sample: "Cours hebdomadaires enfants & adultes dès 4 ans.",
+    size: "text-2xl",
+  },
+  {
+    label: "Newsreader — éditorial, citations",
+    cls: "font-news italic",
+    sample: "« Laissez la terre parler. »",
+    size: "text-3xl",
+  },
+  {
+    label: "JetBrains Mono — labels, meta",
+    cls: "font-mono tracking-[0.2em] uppercase",
+    sample: "De mère en fille — Paris IXe",
+    size: "text-sm",
+  },
+] as const;
+
+export default function DesignTest() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-screen">
+
+      {/* ── Section titre ── */}
+      <div className="bg-ink text-yellow px-8 py-6 flex items-center justify-between">
+        <p className="font-mono text-[11px] tracking-[0.25em] uppercase">
+          Atelier Terre Libre — Design Tokens
+        </p>
+        <p className="font-mono text-[11px] tracking-[0.25em] uppercase opacity-50">
+          Étape 2 · Page de test
+        </p>
+      </div>
+
+      {/* ── 1. Mot-marque principal ── */}
+      <section className="bg-yellow px-8 pt-10 pb-8 overflow-hidden">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-4">
+          01 — Mot-marque principal · clamp(4rem, 17vw, 14rem)
+        </p>
+        <h1
+          className="font-archivo-black leading-[0.85] tracking-[-0.02em] text-ink"
+          style={{ fontSize: "var(--fs-brand)" }}
+        >
+          terre <span className="italic">LIBRE</span>
+        </h1>
+      </section>
+
+      {/* ── 2. Noms des pages internes ── */}
+      <section className="bg-cream px-8 pt-10 pb-8 overflow-hidden">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-6">
+          02 — Noms de pages internes · tester tous les viewports
+        </p>
+        <div className="space-y-2">
+          {PAGE_NAMES.map(({ name, fsVar }) => (
+            <div key={name} className="border-b border-ink/10 pb-3 overflow-hidden">
+              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-mute mb-1">
+                /{name} · {fsVar === "--fs-page-events" ? "clamp(3rem, 12.5vw, 11rem)" : "clamp(3.5rem, 15vw, 13rem)"}
+              </p>
+              <h2
+                className="font-archivo-black leading-[0.86] tracking-[-0.02em] text-ink"
+                style={{ fontSize: `var(${fsVar})` }}
+              >
+                {name}
+                <span className="italic">.</span>
+              </h2>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 3. Palette ── */}
+      <section className="bg-ink px-8 pt-10 pb-10">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-yellow mb-6">
+          03 — Palette
+        </p>
+        <div className="flex flex-wrap gap-3">
+          {PALETTE.map(({ label, hex, bg, text }) => (
+            <div
+              key={label}
+              className={`${bg} ${text} px-5 py-4 rounded-sm min-w-[140px]`}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              <p className="font-mono text-[10px] tracking-[0.15em] uppercase font-semibold">
+                {label}
+              </p>
+              <p className="font-mono text-[11px] mt-1 opacity-70">{hex}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 4. Typographies ── */}
+      <section className="bg-cream px-8 pt-10 pb-10 space-y-8">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute">
+          04 — Typographies
+        </p>
+        {FONTS.map(({ label, cls, sample, size }) => (
+          <div key={label} className="border-b border-ink/10 pb-8">
+            <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-mute mb-3">
+              {label}
+            </p>
+            <p className={`${cls} ${size} text-ink`}>{sample}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* ── 5. LogoMark ── */}
+      <section className="bg-yellow px-8 pt-10 pb-10">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-6">
+          05 — LogoMark (proposition SVG — à affiner)
+        </p>
+        <div className="flex items-end gap-8">
+          {[32, 44, 56, 72].map((s) => (
+            <div key={s} className="flex flex-col items-center gap-2">
+              <LogoMark size={s} />
+              <p className="font-mono text-[9px] tracking-[0.15em] text-mute">{s}px</p>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-3 mt-8">
+          <LogoMark size={44} />
+          <p className="font-archivo-black text-[18px] leading-none text-ink">
+            terre<span className="italic">LIBRE</span>
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <p className="font-mono text-[9px] tracking-[0.15em] text-mute mt-3">
+          ↑ Logotype complet · tel qu&apos;il apparaîtra dans la nav
+        </p>
+      </section>
+
+    </main>
   );
 }
