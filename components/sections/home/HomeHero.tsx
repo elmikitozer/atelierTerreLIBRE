@@ -90,7 +90,7 @@ export default function HomeHero() {
       <div className="md:hidden">
 
         {/* Bloc jaune — mot-marque + citation + CTAs */}
-        <div className="bg-yellow px-5 pt-6 pb-10 overflow-hidden min-h-[80svh] flex flex-col">
+        <div className="bg-yellow px-5 py-12 overflow-hidden flex flex-col gap-8">
           <h1
             className="font-archivo-black leading-[0.85] tracking-[-0.02em] text-ink"
             style={{ fontSize: "var(--fs-brand)" }}
@@ -98,24 +98,22 @@ export default function HomeHero() {
             <span className="block">terre</span>
             <span className="block italic -mt-[0.05em]">LIBRE</span>
           </h1>
-          <div className="mt-auto">
-            <p className="font-news italic text-[20px] leading-[1.3] text-ink">
-              Libérez votre créativité, laissez la terre parler.
-            </p>
-            <div className="flex flex-col gap-3 mt-7">
-              <Link
-                href="/pratiquer"
-                className="py-3.5 rounded-full bg-ink text-yellow font-manrope font-semibold text-[14px] text-center"
-              >
-                Découvrir les cours
-              </Link>
-              <Link
-                href="/l-atelier"
-                className="py-3.5 rounded-full border border-ink text-ink font-manrope font-semibold text-[14px] text-center"
-              >
-                Notre histoire
-              </Link>
-            </div>
+          <p className="font-news italic text-[20px] leading-[1.3] text-ink">
+            Libérez votre créativité, laissez la terre parler.
+          </p>
+          <div className="flex flex-col gap-3">
+            <Link
+              href="/pratiquer"
+              className="py-3.5 rounded-full bg-ink text-yellow font-manrope font-semibold text-[14px] text-center"
+            >
+              Découvrir les cours
+            </Link>
+            <Link
+              href="/l-atelier"
+              className="py-3.5 rounded-full border border-ink text-ink font-manrope font-semibold text-[14px] text-center"
+            >
+              Notre histoire
+            </Link>
           </div>
         </div>
 
