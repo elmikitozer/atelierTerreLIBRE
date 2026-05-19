@@ -1,3 +1,4 @@
+import type { SanityImageSource } from "@sanity/image-url"
 import { sanityClient } from "./client"
 
 // ─── Types ───────────────────────────────────────────────
@@ -96,6 +97,42 @@ export async function getStagesDimanche(): Promise<StageDimanche[]> {
   return sanityClient.fetch<StageDimanche[]>(
     `*[_type == "stageDimanche"] | order(order asc){
       _id, date, hours, tarifAdulte, tarifEnfant, order
+    }`
+  )
+}
+
+export type TarifsEvenements = {
+  anniversaireBase: number
+  anniversaireSeuilEnfants: number
+  anniversaireEnfantSupp: number
+  teamBuildingMention: string
+}
+
+export type GaleriePhoto = {
+  _id: string
+  image: SanityImageSource
+  caption?: string
+  order: number
+}
+
+export async function getGaleriePhotos(): Promise<GaleriePhoto[]> {
+  return sanityClient.fetch<GaleriePhoto[]>(
+    `*[_type == "galerie"] | order(order asc){
+      _id,
+      image,
+      caption,
+      order
+    }`
+  )
+}
+
+export async function getTarifsEvenements(): Promise<TarifsEvenements | null> {
+  return sanityClient.fetch<TarifsEvenements | null>(
+    `*[_id == "tarifsEvenements"][0]{
+      anniversaireBase,
+      anniversaireSeuilEnfants,
+      anniversaireEnfantSupp,
+      teamBuildingMention
     }`
   )
 }

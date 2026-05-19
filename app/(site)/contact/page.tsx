@@ -1,10 +1,20 @@
+import PageHero from "@/components/hero/PageHero"
+import ContactInfoSection from "@/components/sections/contact/ContactInfoSection"
+import CarteSection from "@/components/sections/contact/CarteSection"
+import FormulaireSection from "@/components/sections/contact/FormulaireSection"
+
 export default function ContactPage() {
   return (
-    <div className="px-8 md:px-12 py-16">
-      <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-3">
-        Stub — à construire
-      </p>
-      <h1 className="font-archivo-black text-5xl text-ink">contact</h1>
-    </div>
-  );
+    <>
+      <PageHero
+        pageName="contact"
+        supraLeft="NOUS ÉCRIRE · VENIR NOUS VOIR · 75009 PARIS"
+        supraRight="TERRE LIBRE · PARIS IXe"
+        tagline="Un mot, un appel, une visite — on adore qu'on vienne voir l'atelier."
+      />
+      <ContactInfoSection />
+      <CarteSection />
+      <FormulaireSection />
+    </>
+  )
 }

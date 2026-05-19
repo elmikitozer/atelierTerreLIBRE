@@ -1,10 +1,22 @@
+import PageHero from "@/components/hero/PageHero"
+import AnniversairesSection from "@/components/sections/evenements/AnniversairesSection"
+import TeamBuildingSection from "@/components/sections/evenements/TeamBuildingSection"
+import PrivatisationSection from "@/components/sections/evenements/PrivatisationSection"
+
+export const revalidate = 60
+
 export default function EvenementsPage() {
   return (
-    <div className="px-8 md:px-12 py-16">
-      <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-3">
-        Stub — à construire
-      </p>
-      <h1 className="font-archivo-black text-5xl text-ink">événements</h1>
-    </div>
-  );
+    <>
+      <PageHero
+        pageName="événements"
+        supraLeft="ANNIVERSAIRES · TEAM BUILDING · PRIVATISATIONS"
+        supraRight="TERRE LIBRE · PARIS IXe"
+        compact
+      />
+      <AnniversairesSection />
+      <TeamBuildingSection />
+      <PrivatisationSection />
+    </>
+  )
 }

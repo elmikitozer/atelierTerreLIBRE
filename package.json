@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed:sanity": "tsx -r dotenv/config scripts/seed-sanity.ts dotenv_config_path=.env.local"
+    "seed:sanity": "tsx -r dotenv/config scripts/seed-sanity.ts dotenv_config_path=.env.local",
+    "seed:gallery": "tsx -r dotenv/config scripts/seed-gallery.ts dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
@@ -16,7 +17,8 @@
     "next-sanity": "^12.4.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "sanity": "^5.25.1"
+    "sanity": "^5.25.1",
+    "yet-another-react-lightbox": "^3.32.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

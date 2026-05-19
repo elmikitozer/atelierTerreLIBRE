@@ -108,6 +108,17 @@ async function seed() {
   }
   console.log(`✓ Stages dimanche (${stagesDimanche.length})`)
 
+  // 6. Tarifs événements
+  await writeClient.createOrReplace({
+    _id: "tarifsEvenements",
+    _type: "tarifsEvenements",
+    anniversaireBase: 350,
+    anniversaireSeuilEnfants: 8,
+    anniversaireEnfantSupp: 35,
+    teamBuildingMention: "Sur mesure — devis personnalisé selon durée, taille du groupe, déjeuner.",
+  })
+  console.log("✓ Tarifs événements")
+
   console.log("Seeding terminé.")
 }
 

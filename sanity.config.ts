@@ -4,7 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 import { projectId, dataset, apiVersion } from './sanity/env'
 
-const SINGLETONS = ['rentree', 'coursEnfants', 'coursAdultes'] as const
+const SINGLETONS = ['rentree', 'coursEnfants', 'coursAdultes', 'tarifsEvenements'] as const
 type Singleton = typeof SINGLETONS[number]
 
 export default defineConfig({
@@ -23,9 +23,13 @@ export default defineConfig({
             .child(S.document().schemaType('coursEnfants').documentId('coursEnfants')),
           S.listItem().title('Cours adultes')
             .child(S.document().schemaType('coursAdultes').documentId('coursAdultes')),
+          S.listItem().title('Tarifs événements')
+            .child(S.document().schemaType('tarifsEvenements').documentId('tarifsEvenements')),
           S.divider(),
           S.documentTypeListItem('stageVacances').title('Stages vacances'),
           S.documentTypeListItem('stageDimanche').title('Stages dimanche'),
+          S.divider(),
+          S.documentTypeListItem('galerie').title('Galerie photo'),
         ]),
     }),
     visionTool({ defaultApiVersion: apiVersion }),

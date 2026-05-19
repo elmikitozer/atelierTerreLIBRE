@@ -2,6 +2,7 @@ import { getCoursEnfants, getCoursAdultes } from "@/lib/sanity/queries"
 import ScheduleTable from "@/components/ui/ScheduleTable"
 import PriceCard from "@/components/ui/PriceCard"
 import SectionPhoto from "@/components/ui/SectionPhoto"
+import IntroWithPhoto from "@/components/ui/IntroWithPhoto"
 
 export default async function CoursHebdoSection() {
   const [enfants, adultes] = await Promise.all([getCoursEnfants(), getCoursAdultes()])
@@ -11,39 +12,33 @@ export default async function CoursHebdoSection() {
 
       {/* ── Intro ───────────────────────────────────── */}
       <section className="px-5 md:px-12 py-12 md:py-14 border-b border-ink/10">
-        <div className="md:grid md:grid-cols-12 md:gap-10">
-          <div className="md:col-span-7">
-            <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-5">
-              Cours hebdomadaires
+        <IntroWithPhoto
+          src="/enfants/_DSC0885.jpg"
+          alt="Atelier Terre Libre — cours hebdomadaires"
+          objectPosition="center 25%"
+          sizes="(max-width: 768px) 0px, 42vw"
+          caption="↑ Autour de la grande table"
+          hidePhotoOnMobile
+        >
+          <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-5">
+            Cours hebdomadaires
+          </p>
+          <p className="font-news text-[20px] md:text-[24px] leading-[1.4] text-ink">
+            En cours, les élèves se retrouvent autour d&apos;une grande table conviviale
+            pour créer librement — par groupe d&apos;enfants ou d&apos;adultes, sans
+            distinction d&apos;âge. Chacun est libre de créer selon ses envies.{" "}
+            <em>Pas de thème imposé.</em>
+          </p>
+          <p className="font-news text-[16px] md:text-[18px] leading-[1.6] mt-4 text-ink/80">
+            Toutes les étapes de la terre sont ici abordées : modelage, creusage,
+            séchage, ponçage, cuisson, émaillage.
+          </p>
+          {enfants?.essaiPossible && (
+            <p className="font-news italic text-[15px] md:text-[16px] mt-4 text-ink/70">
+              Cours d&apos;essai possible.
             </p>
-            <p className="font-news text-[20px] md:text-[24px] leading-[1.4] text-ink">
-              En cours, les élèves se retrouvent autour d&apos;une grande table conviviale
-              pour créer librement — par groupe d&apos;enfants ou d&apos;adultes, sans
-              distinction d&apos;âge. Chacun est libre de créer selon ses envies.{" "}
-              <em>Pas de thème imposé.</em>
-            </p>
-            <p className="font-news text-[16px] md:text-[18px] leading-[1.6] mt-4 text-ink/80">
-              Toutes les étapes de la terre sont ici abordées : modelage, creusage,
-              séchage, ponçage, cuisson, émaillage.
-            </p>
-            {enfants?.essaiPossible && (
-              <p className="font-news italic text-[15px] md:text-[16px] mt-4 text-ink/70">
-                Cours d&apos;essai possible.
-              </p>
-            )}
-          </div>
-          <div className="hidden md:block md:col-span-5">
-            <SectionPhoto
-              src="/enfants/_DSC0885.jpg"
-              alt="Atelier Terre Libre — cours hebdomadaires"
-              objectPosition="center 25%"
-              sizes="(max-width: 768px) 0px, 42vw"
-            />
-            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute mt-2">
-              ↑ Autour de la grande table
-            </p>
-          </div>
-        </div>
+          )}
+        </IntroWithPhoto>
       </section>
 
       {/* ── Cours enfants ───────────────────────────── */}

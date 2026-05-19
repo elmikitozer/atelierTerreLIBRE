@@ -6,6 +6,7 @@ type Props = {
   sizes?: string;
   fill?: boolean;
   objectPosition?: string;
+  alt?: string;
 };
 
 export default function PhotoFondatrices({
@@ -14,11 +15,12 @@ export default function PhotoFondatrices({
   sizes = "100vw",
   fill = true,
   objectPosition = "center 5%",
+  alt = "Sylvia et Déborah Katuszewski, fondatrices de l'Atelier Terre Libre",
 }: Props) {
   return (
     <Image
       src="/SylviaDeborah.jpg"
-      alt="Sylvia et Déborah Katuszewski, fondatrices de l'Atelier Terre Libre"
+      alt={alt}
       fill={fill}
       className={`object-cover ${className}`}
       style={{ objectPosition }}

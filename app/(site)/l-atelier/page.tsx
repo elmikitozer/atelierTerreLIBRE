@@ -1,10 +1,23 @@
-export default function LatelierPage() {
+import PageHero from "@/components/hero/PageHero"
+import AtelierIntroSection from "@/components/sections/atelier/AtelierIntroSection"
+import PedagogieSection from "@/components/sections/atelier/PedagogieSection"
+import FideliteSection from "@/components/sections/atelier/FideliteSection"
+import GalerieSection from "@/components/sections/atelier/GalerieSection"
+
+export const revalidate = 60
+
+export default function AtelierPage() {
   return (
-    <div className="px-8 md:px-12 py-16">
-      <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-3">
-        Stub — à construire
-      </p>
-      <h1 className="font-archivo-black text-5xl text-ink">l&apos;atelier</h1>
-    </div>
-  );
+    <>
+      <PageHero
+        pageName="l'atelier"
+        supraLeft="DEPUIS 1985 · MÈRE EN FILLE"
+        supraRight="TERRE LIBRE · PARIS IXe"
+      />
+      <AtelierIntroSection />
+      <PedagogieSection />
+      <FideliteSection />
+      <GalerieSection />
+    </>
+  )
 }
