@@ -6,7 +6,8 @@
     "dev": "NODE_OPTIONS='--max-old-space-size=2048' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed:sanity": "tsx -r dotenv/config scripts/seed-sanity.ts dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",

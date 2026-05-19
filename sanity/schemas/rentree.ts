@@ -4,6 +4,11 @@ export const rentree = defineType({
   name: 'rentree',
   title: 'Rentrée',
   type: 'document',
+  preview: {
+    prepare() {
+      return { title: "Rentrée", subtitle: "Dates de rentrée — adultes et enfants" }
+    },
+  },
   fields: [
     defineField({
       name: 'dateAdultes',

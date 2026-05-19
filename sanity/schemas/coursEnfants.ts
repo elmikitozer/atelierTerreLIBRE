@@ -4,6 +4,11 @@ export const coursEnfants = defineType({
   name: 'coursEnfants',
   title: 'Cours enfants',
   type: 'document',
+  preview: {
+    prepare() {
+      return { title: "Cours enfants", subtitle: "Créneaux et tarifs hebdomadaires" }
+    },
+  },
   fields: [
     defineField({
       name: 'minAge',

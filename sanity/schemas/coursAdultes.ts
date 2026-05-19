@@ -4,6 +4,11 @@ export const coursAdultes = defineType({
   name: 'coursAdultes',
   title: 'Cours adultes',
   type: 'document',
+  preview: {
+    prepare() {
+      return { title: "Cours adultes", subtitle: "Créneaux et tarifs hebdomadaires" }
+    },
+  },
   fields: [
     defineField({
       name: 'schedule',
