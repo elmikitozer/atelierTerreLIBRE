@@ -5,11 +5,11 @@ import HomeGallery from "@/components/sections/home/HomeGallery";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HomeHero />
       <HomeQuote />
       <HomePillars />
       <HomeGallery />
-    </main>
+    </>
   );
 }

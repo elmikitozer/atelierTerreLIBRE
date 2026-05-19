@@ -121,7 +121,7 @@ export default function HomeHero() {
         <div className="bg-cream px-5 pt-6 pb-10">
           <div className="relative">
             <div className="relative h-[360px] rounded-sm overflow-hidden">
-              <PhotoFondatrices priority sizes="100vw" />
+              <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
             <div className="absolute -bottom-3 left-3 bg-ink text-yellow px-3 py-2 rounded-sm">
               <p className="font-mono text-[8px] tracking-[0.22em] uppercase opacity-80">
