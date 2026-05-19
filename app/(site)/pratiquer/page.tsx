@@ -1,10 +1,21 @@
+import PageHero from "@/components/hero/PageHero"
+import CallOutRentree from "@/components/sections/CallOutRentree"
+import CoursHebdoSection from "@/components/sections/pratiquer/CoursHebdoSection"
+import StagesSection from "@/components/sections/pratiquer/StagesSection"
+
+export const revalidate = 60
+
 export default function PratiquerPage() {
   return (
-    <div className="px-8 md:px-12 py-16">
-      <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-mute mb-3">
-        Stub — à construire
-      </p>
-      <h1 className="font-archivo-black text-5xl text-ink">pratiquer</h1>
-    </div>
-  );
+    <>
+      <PageHero
+        pageName="pratiquer"
+        supraLeft="COURS HEBDOMADAIRES & STAGES"
+        supraRight="TERRE LIBRE · PARIS 9e"
+      />
+      <CallOutRentree />
+      <CoursHebdoSection />
+      <StagesSection />
+    </>
+  )
 }

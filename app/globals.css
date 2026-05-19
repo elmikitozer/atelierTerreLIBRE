@@ -20,6 +20,6 @@
 /* ─── Tailles fluides des mots-marque ─── */
 :root {
   --fs-brand: clamp(3rem, 14vw, 11rem);
-  --fs-page-name: clamp(3.5rem, 15vw, 13rem);
-  --fs-page-events: clamp(3rem, 12.5vw, 11rem);
+  --fs-page-name: clamp(3rem, 12vw, 9rem);
+  --fs-page-events: clamp(3rem, 10vw, 8rem);
 }
