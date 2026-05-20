@@ -13,7 +13,7 @@ export default function ScheduleTable({ slots }: Props) {
           className="border-b border-ink/10 py-2.5 md:flex md:items-baseline md:gap-5"
         >
           {/* Jour */}
-          <div className="font-archivo font-semibold text-[14px] md:text-[15px] text-ink w-full md:w-[120px] md:shrink-0">
+          <div className="font-archivo font-semibold text-[14px] md:text-[15px] text-ink w-full md:w-[120px] md:shrink-0 whitespace-pre-line">
             {slot.day}
           </div>
           {/* Horaires */}

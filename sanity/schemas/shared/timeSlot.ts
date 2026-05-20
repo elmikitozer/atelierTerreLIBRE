@@ -8,8 +8,8 @@ export const timeSlot = defineType({
     defineField({
       name: 'day',
       title: 'Jour',
-      type: 'string',
-      description: 'Ex : "Lundi", "Mercredi"',
+      type: 'text',
+      description: 'Ex : "Lundi". Appuyez sur Entrée pour un saut de ligne.',
       validation: (R) => R.required(),
     }),
     defineField({
@@ -20,4 +20,13 @@ export const timeSlot = defineType({
       description: 'Ex : "9h30 – 11h30", "14h – 16h"',
     }),
   ],
+  preview: {
+    select: { title: 'day', hours: 'hours' },
+    prepare({ title, hours }: { title?: string; hours?: string[] }) {
+      return {
+        title: title ?? '—',
+        subtitle: Array.isArray(hours) ? hours.filter(Boolean).join('  ·  ') : '',
+      }
+    },
+  },
 })
