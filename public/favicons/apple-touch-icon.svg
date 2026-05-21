@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" fill="#f1dd6a"/>
+  <text
+    x="90"
+    y="78"
+    font-family="'Archivo Black', 'Arial Black', sans-serif"
+    font-weight="900"
+    font-size="62"
+    fill="#1a1814"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >terre</text>
+  <text
+    x="90"
+    y="138"
+    font-family="'Archivo Black', 'Arial Black', sans-serif"
+    font-weight="900"
+    font-style="italic"
+    font-size="62"
+    fill="#1a1814"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >LIBRE</text>
+</svg>

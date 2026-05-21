@@ -1,0 +1,15 @@
+{
+  "name": "Atelier Terre Libre",
+  "short_name": "Terre Libre",
+  "description": "Atelier de modelage et céramique à Paris 9e",
+  "icons": [
+    {
+      "src": "/favicons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#f1dd6a",
+  "background_color": "#faf7ee",
+  "display": "standalone"
+}

@@ -1,31 +1,44 @@
-import Link from "next/link";
+import Link from "next/link"
+import Image from "next/image"
 
-const PILLARS = [
+type Pillar = {
+  title: string
+  desc: string
+  href: string
+  image: string
+  alt: string
+}
+
+const PILLARS: Pillar[] = [
   {
-    n: "01",
     title: "Cours hebdo",
     desc: "Au trimestre ou à l'année, enfants et adultes, journée et soirée.",
     href: "/pratiquer#cours",
+    image: "/enfants/_DSC0885.jpg",
+    alt: "Enfant modelant à l'atelier",
   },
   {
-    n: "02",
     title: "Stages",
     desc: "Vacances scolaires et stages dimanche en famille, à la carte.",
     href: "/pratiquer#stages",
+    image: "/adultes/_DSC0989.jpg",
+    alt: "Adulte travaillant la terre",
   },
   {
-    n: "03",
     title: "Anniversaires",
     desc: "On gère pour vous l'anniversaire de vos enfants, de A à Z.",
     href: "/evenements#anniversaires",
+    image: "/enfants/_DSC0877.jpg",
+    alt: "Anniversaire d'enfants à l'atelier",
   },
   {
-    n: "04",
     title: "Entreprises",
     desc: "Team building et privatisation de l'atelier, sur mesure.",
     href: "/evenements#team-building",
+    image: "/teamBuilding.jpg",
+    alt: "Session team building en céramique",
   },
-] as const;
+]
 
 export default function HomePillars() {
   return (
@@ -43,58 +56,66 @@ export default function HomePillars() {
 
       {/* Grille desktop */}
       <div className="hidden md:grid grid-cols-4 gap-5">
-        {PILLARS.map(({ n, title, desc, href }) => (
+        {PILLARS.map(({ title, desc, href, image, alt }) => (
           <Link
-            key={n}
+            key={title}
             href={href}
-            className="bg-white border border-ink/10 rounded-sm p-6 flex flex-col gap-5 hover:bg-yellow/30 transition-colors group"
+            className="bg-white border border-ink/10 rounded-sm flex flex-col hover:bg-yellow/30 transition-colors group overflow-hidden"
           >
-            {/* <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-mute">
-              {n}
-            </p> */}
-            {/* Photo placeholder */}
-            <div className="h-[160px] rounded-sm bg-photo" aria-hidden="true" />
-            <div className="flex-1">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Image
+                src={image}
+                fill
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                sizes="(max-width: 1280px) 25vw, 20vw"
+                alt={alt}
+              />
+            </div>
+            <div className="p-6 flex flex-col gap-3 flex-1">
               <p className="font-archivo-black text-[22px] leading-tight text-ink">
                 {title}
               </p>
-              <p className="font-manrope text-[14px] leading-snug mt-2 text-ink/75">
+              <p className="font-manrope text-[14px] leading-snug text-ink/75 flex-1">
                 {desc}
               </p>
+              <p className="font-manrope text-[13px] underline underline-offset-4 text-ink mt-auto group-hover:opacity-70">
+                Découvrir →
+              </p>
             </div>
-            <p className="font-manrope text-[13px] underline underline-offset-4 text-ink mt-auto group-hover:opacity-70">
-              Découvrir →
-            </p>
           </Link>
         ))}
       </div>
 
       {/* Liste mobile */}
       <div className="flex flex-col gap-3 md:hidden">
-        {PILLARS.map(({ n, title, desc, href }) => (
+        {PILLARS.map(({ title, desc, href, image, alt }) => (
           <Link
-            key={n}
+            key={title}
             href={href}
-            className="bg-white border border-ink/10 rounded-sm p-4 flex items-center gap-4 hover:bg-yellow/30 transition-colors"
+            className="bg-white border border-ink/10 rounded-sm flex items-center gap-4 hover:bg-yellow/30 transition-colors overflow-hidden"
           >
-            {/* Vignette */}
-            <div className="w-20 h-20 rounded-sm bg-photo shrink-0" aria-hidden="true" />
-            <div className="flex-1 min-w-0">
-              <p className="font-mono text-[9px] tracking-[0.2em] uppercase text-mute">
-                {n}
-              </p>
-              <p className="font-archivo-black text-[18px] leading-tight text-ink mt-0.5">
+            <div className="relative w-20 h-20 shrink-0 overflow-hidden">
+              <Image
+                src={image}
+                fill
+                className="object-cover"
+                sizes="80px"
+                alt={alt}
+              />
+            </div>
+            <div className="flex-1 min-w-0 py-4 pr-4">
+              <p className="font-archivo-black text-[18px] leading-tight text-ink">
                 {title}
               </p>
               <p className="font-manrope text-[12px] mt-1 text-ink/75 leading-snug">
                 {desc}
               </p>
             </div>
-            <span className="text-ink/40 text-xl shrink-0">→</span>
+            <span className="text-ink/40 text-xl shrink-0 pr-4">→</span>
           </Link>
         ))}
       </div>
 
     </section>
-  );
+  )
 }

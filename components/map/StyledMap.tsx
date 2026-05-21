@@ -3,8 +3,8 @@
 import { GoogleMap, useJsApiLoader, OverlayView } from "@react-google-maps/api"
 
 const ATELIER_POSITION = {
-  lat: 48.88276563308417,
-  lng: 2.3294777896746357,
+  lat: 48.8827362,
+  lng: 2.3294773,
 }
 
 const METRO_STATIONS = [

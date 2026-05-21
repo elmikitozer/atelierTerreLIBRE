@@ -1,4 +1,12 @@
+import type { Metadata } from "next"
 import PageHero from "@/components/hero/PageHero"
+
+export const metadata: Metadata = {
+  title: "Contact — Nous écrire, nous appeler",
+  description:
+    "17 rue de Vintimille, 75009 Paris. Métro Place de Clichy. Téléphone, email, formulaire de contact. Atelier Terre Libre.",
+  alternates: { canonical: "/contact" },
+}
 import ContactInfoSection from "@/components/sections/contact/ContactInfoSection"
 import CarteSection from "@/components/sections/contact/CarteSection"
 import FormulaireSection from "@/components/sections/contact/FormulaireSection"

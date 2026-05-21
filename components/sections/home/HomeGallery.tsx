@@ -1,6 +1,21 @@
-import Link from "next/link";
+import Link from "next/link"
+import Image from "next/image"
+import { getGaleriePhotos } from "@/lib/sanity/queries"
+import { urlFor } from "@/lib/sanity/image"
 
-export default function HomeGallery() {
+const DESKTOP_SPANS = [
+  "col-span-2 row-span-2",
+  "col-span-2 row-span-1",
+  "col-span-2 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-2 row-span-1",
+]
+
+export default async function HomeGallery() {
+  const allPhotos = await getGaleriePhotos()
+  const photos = allPhotos.slice(0, 6)
+
   return (
     <section className="bg-ink px-8 md:px-12 py-16 md:py-20">
 
@@ -17,30 +32,43 @@ export default function HomeGallery() {
         </Link>
       </div>
 
-      {/* Grille desktop — asymétrique 6 cols × 2 rows */}
-      <div className="hidden md:grid grid-cols-6 grid-rows-2 gap-3 h-[440px]">
-        {/* Grande photo gauche */}
-        <div className="col-span-2 row-span-2 rounded-sm bg-photo/40" aria-label="Photo atelier" />
-        {/* Ligne 1, milieu-droite */}
-        <div className="col-span-2 rounded-sm bg-photo/30" aria-label="Photo atelier" />
-        <div className="col-span-2 rounded-sm bg-photo/50" aria-label="Photo atelier" />
-        {/* Ligne 2, milieu-droite */}
-        <div className="col-span-1 rounded-sm bg-photo/35" aria-label="Photo atelier" />
-        <div className="col-span-1 rounded-sm bg-photo/45" aria-label="Photo atelier" />
-        <div className="col-span-2 rounded-sm bg-photo/30" aria-label="Photo atelier" />
-      </div>
+      {photos.length === 0 ? (
+        <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-cream/30 py-16 text-center">
+          Galerie en cours de constitution
+        </p>
+      ) : (
+        <>
+          {/* Grille desktop asymétrique — 6 cols × 2 rows */}
+          <div className="hidden md:grid grid-cols-6 grid-rows-2 gap-3 h-[440px]">
+            {photos.map((photo, i) => (
+              <div key={photo._id} className={`relative rounded-sm overflow-hidden ${DESKTOP_SPANS[i]}`}>
+                <Image
+                  src={urlFor(photo.image).width(1200).quality(85).url()}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 33vw, 25vw"
+                  alt={photo.caption || "Atelier Terre Libre"}
+                />
+              </div>
+            ))}
+          </div>
 
-      {/* Grille mobile — 2 × 2 */}
-      <div className="grid grid-cols-2 gap-2 md:hidden">
-        {[0.4, 0.3, 0.45, 0.35].map((opacity, i) => (
-          <div
-            key={i}
-            className="aspect-square rounded-sm bg-photo"
-            style={{ opacity }}
-            aria-label="Photo atelier"
-          />
-        ))}
-      </div>
+          {/* Grille mobile — 2 colonnes */}
+          <div className="grid grid-cols-2 gap-2 md:hidden">
+            {photos.slice(0, 4).map((photo) => (
+              <div key={photo._id} className="relative aspect-square rounded-sm overflow-hidden">
+                <Image
+                  src={urlFor(photo.image).width(600).quality(80).url()}
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                  alt={photo.caption || "Atelier Terre Libre"}
+                />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
 
       {/* CTA mobile */}
       <Link
@@ -61,5 +89,5 @@ export default function HomeGallery() {
       </div>
 
     </section>
-  );
+  )
 }

@@ -1,4 +1,12 @@
+import type { Metadata } from "next"
 import PageHero from "@/components/hero/PageHero"
+
+export const metadata: Metadata = {
+  title: "Pratiquer — Cours et stages",
+  description:
+    "Cours hebdomadaires de poterie et stages à l'Atelier Terre Libre, Paris 9e. Pour adultes et enfants. À partir de 4 ans.",
+  alternates: { canonical: "/pratiquer" },
+}
 import CallOutRentree from "@/components/sections/CallOutRentree"
 import CoursHebdoSection from "@/components/sections/pratiquer/CoursHebdoSection"
 import StagesSection from "@/components/sections/pratiquer/StagesSection"
