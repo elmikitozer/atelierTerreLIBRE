@@ -1,5 +1,5 @@
-import Link from "next/link";
-import PhotoFondatrices from "@/components/ui/PhotoFondatrices";
+import Link from "next/link"
+import PhotoFondatrices from "@/components/ui/PhotoFondatrices"
 
 export default function HomeHero() {
   return (
@@ -21,8 +21,8 @@ export default function HomeHero() {
       {/* ── Desktop : split 7 / 5 ───────────────── */}
       <div className="hidden md:grid grid-cols-12">
 
-        {/* Gauche — jaune, mot-marque + citation + CTAs */}
-        <div className="col-span-7 bg-yellow px-12 pt-12 pb-14 overflow-hidden">
+        {/* Gauche — jaune, mot-marque + CTAs + citation compacte */}
+        <div className="col-span-7 bg-yellow px-12 pt-12 pb-14 overflow-hidden flex flex-col">
           <h1
             className="font-archivo-black leading-[0.85] tracking-[-0.02em] text-ink"
             style={{ fontSize: "var(--fs-brand)" }}
@@ -30,10 +30,8 @@ export default function HomeHero() {
             <span className="block">terre</span>
             <span className="block italic -mt-[0.06em]">LIBRE</span>
           </h1>
-          <p className="font-news italic text-[26px] leading-[1.3] mt-10 max-w-[520px] text-ink">
-            Libérez votre créativité, laissez la terre parler.
-          </p>
-          <div className="flex items-center gap-5 mt-8">
+
+          <div className="flex items-center gap-5 mt-10">
             <Link
               href="/pratiquer"
               className="px-6 py-3.5 rounded-full bg-ink text-yellow font-manrope font-semibold text-[14px]"
@@ -47,16 +45,24 @@ export default function HomeHero() {
               Notre histoire →
             </Link>
           </div>
+
+          {/* Citation compacte */}
+          <div className="mt-10 border-l-2 border-ink/20 pl-5">
+            <p className="font-news italic text-[18px] leading-[1.35] text-ink/80">
+              Libérez votre créativité, laissez la terre parler.
+            </p>
+            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-ink/45 mt-2">
+              — Sylvia &amp; Déborah, fondatrices
+            </p>
+          </div>
         </div>
 
         {/* Droite — crème, photo + texte éditorial */}
         <div className="col-span-5 bg-cream px-8 pt-12 pb-14 flex flex-col">
           <div className="relative">
-            {/* Photo */}
             <div className="relative h-[500px] rounded-sm overflow-hidden">
               <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
-            {/* Badge */}
             <div className="absolute -bottom-3 left-3 bg-ink text-yellow px-3 py-2 rounded-sm">
               <p className="font-mono text-[9px] tracking-[0.22em] uppercase opacity-80">
                 ↑ Sylvia &amp; Déborah
@@ -67,7 +73,6 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Texte éditorial */}
           <div className="mt-10">
             <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-mute mb-3">
               Le mot des fondatrices
@@ -89,7 +94,7 @@ export default function HomeHero() {
       {/* ── Mobile : séquentiel ─────────────────── */}
       <div className="md:hidden">
 
-        {/* Bloc jaune — mot-marque + citation + CTAs */}
+        {/* Bloc jaune — mot-marque + CTAs + citation */}
         <div className="bg-yellow px-5 py-12 overflow-hidden flex flex-col gap-8">
           <h1
             className="font-archivo-black leading-[0.85] tracking-[-0.02em] text-ink"
@@ -98,9 +103,7 @@ export default function HomeHero() {
             <span className="block">terre</span>
             <span className="block italic -mt-[0.05em]">LIBRE</span>
           </h1>
-          <p className="font-news italic text-[20px] leading-[1.3] text-ink">
-            Libérez votre créativité, laissez la terre parler.
-          </p>
+
           <div className="flex flex-col gap-3">
             <Link
               href="/pratiquer"
@@ -114,6 +117,16 @@ export default function HomeHero() {
             >
               Notre histoire
             </Link>
+          </div>
+
+          {/* Citation compacte */}
+          <div className="border-l-2 border-ink/20 pl-4">
+            <p className="font-news italic text-[16px] leading-[1.35] text-ink/80">
+              Libérez votre créativité, laissez la terre parler.
+            </p>
+            <p className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/45 mt-2">
+              — Sylvia &amp; Déborah, fondatrices
+            </p>
           </div>
         </div>
 
@@ -152,5 +165,5 @@ export default function HomeHero() {
       </div>
 
     </section>
-  );
+  )
 }
