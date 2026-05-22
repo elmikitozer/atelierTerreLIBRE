@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atelier terre Libre — Prototype menu mobile</title>
+
+<!-- Google Fonts : Archivo Black (titres), Manrope (UI), JetBrains Mono (meta caps) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+/* ───────────────────────────────────────────────────────────────
+   TOKENS
+   ─────────────────────────────────────────────────────────────── */
+:root{
+  --jaune:        #f1dd6a;
+  --jaune-doux:   #f7ecb1;
+  --creme:        #faf7ee;
+  --encre:        #1a1814;
+  --gris-doux:    #6a6358;
+
+  /* ── animation knobs (modifie ici pour ajuster le ressenti) ── */
+  --dur-item:        420ms;      /* durée d'une rubrique qui rentre/sort */
+  --dur-title:       520ms;      /* durée de la transformation du gros titre */
+  --stagger:         70ms;       /* décalage cascade entre rubriques */
+  --slide-from:      -44px;      /* translateX d'arrivée (de la gauche vers 0) */
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);     /* easeOutExpo */
+  --ease-in-expo:    cubic-bezier(0.7, 0, 0.84, 0);     /* easeInExpo (fermeture) */
+}
+
+/* ───────────────────────────────────────────────────────────────
+   PAGE D'ATTERRISSAGE (hors mobile)
+   ─────────────────────────────────────────────────────────────── */
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: #ece8df;
+  color: var(--encre);
+  min-height: 100vh;
+  padding: 48px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+.page-head{
+  text-align: center;
+  max-width: 720px;
+}
+.page-head .eyebrow{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris-doux);
+  margin-bottom: 12px;
+}
+.page-head h1{
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 1.05;
+  margin: 0 0 12px;
+}
+.page-head h1 em{ font-style: italic; }
+.page-head p{
+  font-size: 14px;
+  color: var(--gris-doux);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.frames{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.frame-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.frame-label{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris-doux);
+}
+.frame-label strong{
+  color: var(--encre);
+  font-weight: 500;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   FAUX TÉLÉPHONE (390 × 800)
+   ─────────────────────────────────────────────────────────────── */
+.phone{
+  width: 390px;
+  height: 800px;
+  background: var(--creme);
+  border: 1px solid var(--encre);
+  border-radius: 38px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 60px -30px rgba(26,24,20,0.35),
+              0 6px 20px -10px rgba(26,24,20,0.25);
+}
+
+/* App shell intérieur */
+.app{
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+}
+
+/* ── HERO jaune (~65% de la hauteur du téléphone) ─────────────── */
+.hero{
+  position: relative;
+  flex: 0 0 65%;
+  background: var(--jaune);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header (logo + burger) */
+.topbar{
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 22px 0;
+}
+.logo{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 22px;
+  color: var(--encre);
+  letter-spacing: -0.01em;
+  user-select: none;
+}
+.logo em{ font-style: italic; }
+
+/* Burger : trois traits qui deviennent une croix à l'ouverture */
+.burger{
+  width: 38px; height: 38px;
+  border: none; background: transparent;
+  padding: 0; cursor: pointer;
+  display: grid; place-items: center;
+  position: relative;
+}
+.burger span{
+  position: absolute;
+  left: 9px; right: 9px;
+  height: 2px;
+  background: var(--encre);
+  border-radius: 2px;
+  transition: transform 380ms var(--ease-out-expo),
+              opacity   220ms var(--ease-out-expo),
+              top       380ms var(--ease-out-expo);
+}
+.burger span:nth-child(1){ top: 13px; }
+.burger span:nth-child(2){ top: 19px; }
+.burger span:nth-child(3){ top: 25px; }
+/* État ouvert : trait 1 et 3 forment une croix, le 2 disparaît */
+.app.is-open .burger span:nth-child(1){ top: 19px; transform: rotate(45deg); }
+.app.is-open .burger span:nth-child(2){ opacity: 0; }
+.app.is-open .burger span:nth-child(3){ top: 19px; transform: rotate(-45deg); }
+
+/* ── Zone des titres / menu (à l'intérieur du hero) ───────────── */
+.stage{
+  flex: 1;
+  position: relative;
+  padding: 24px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* le titre géant repose en bas du hero */
+}
+
+/* meta caps en haut à gauche du stage */
+.meta{
+  position: absolute;
+  top: 20px; left: 22px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--encre);
+  opacity: 0.55;
+}
+
+/* Liste des rubriques (toujours présentes dans le DOM, glissent en cascade) */
+.menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.menu li{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 2.25rem;          /* taille "menu" - modeste */
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--encre);
+  /* État fermé : invisibles & décalées à gauche */
+  opacity: 0;
+  transform: translateX(var(--slide-from));
+  transition: opacity var(--dur-item) var(--ease-in-expo),
+              transform var(--dur-item) var(--ease-in-expo);
+  transition-delay: 0ms;       /* override par JS pour la cascade */
+}
+/* État ouvert : on stagger les rubriques (delays injectés par JS) */
+.app.is-open .menu li{
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity var(--dur-item) var(--ease-out-expo),
+              transform var(--dur-item) var(--ease-out-expo);
+}
+
+/* Rubrique "courante" (Écran A) : on lui réserve la place mais
+   on la masque visuellement quand elle joue le rôle du grand titre */
+.menu li.is-current .label-current{
+  display: inline-block;
+  border-bottom: 3px solid var(--encre);
+  padding-bottom: 2px;
+}
+/* ──────────────────────────────────────────────────────────────
+   GRAND TITRE COURANT (Écran A : "pratiquer.")
+   ──────────────────────────────────────────────────────────────
+   Il vit dans son propre élément absolu, positionné au-dessus
+   de l'emplacement de sa rubrique dans le menu. Quand le menu
+   ouvre, il se RÉDUIT pour venir épouser exactement la taille
+   et la position de la rubrique correspondante. */
+.giant{
+  position: absolute;
+  left: 22px;
+  bottom: 28px;                /* aligné en bas du hero quand fermé */
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 6.5rem;           /* énorme à l'état fermé */
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--encre);
+  transform-origin: left bottom;
+  transition: font-size  var(--dur-title) var(--ease-out-expo),
+              bottom     var(--dur-title) var(--ease-out-expo),
+              letter-spacing var(--dur-title) var(--ease-out-expo);
+  pointer-events: none;
+}
+.giant .underline{
+  display: inline-block;
+  border-bottom: 6px solid transparent;   /* invisible à l'état fermé */
+  padding-bottom: 2px;
+  transition: border-width var(--dur-title) var(--ease-out-expo);
+}
+/* À l'ouverture : le titre rétrécit pour matcher la taille des rubriques
+   et s'aligne sur la position de l'item "courant" dans la liste. */
+.app.is-open .giant{
+  font-size: 2.25rem;          /* même taille que .menu li */
+  letter-spacing: -0.01em;
+  /* bottom est calculé par JS pour matcher l'item courant */
+}
+.app.is-open .giant .underline{
+  border-bottom-width: 3px;
+  border-bottom-color: var(--encre);
+}
+
+/* L'item courant dans la liste laisse sa place vide
+   (le grand titre vient se positionner par-dessus) */
+.menu li.is-current{ visibility: hidden; }
+
+/* ──────────────────────────────────────────────────────────────
+   ÉCRAN B — Logotype "terre LIBRE"
+   ────────────────────────────────────────────────────────────── */
+.logotype{
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 28px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 5.4rem;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--encre);
+  transition: opacity var(--dur-title) var(--ease-out-expo);
+  pointer-events: none;
+}
+.logotype .libre{ font-style: italic; }
+/* Au tap : reste en filigrane derrière le menu */
+.app.is-open .logotype{ opacity: 0.15; }
+
+/* ──────────────────────────────────────────────────────────────
+   APERÇU DE CONTENU (sous le hero, juste pour montrer
+   que le hero ne prend pas tout l'écran)
+   ────────────────────────────────────────────────────────────── */
+.below{
+  flex: 1;
+  padding: 22px 22px;
+  background: var(--creme);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+.below .caps{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gris-doux);
+}
+.below h2{
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 22px;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--encre);
+  max-width: 22ch;
+}
+.below p{
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--gris-doux);
+}
+.below .card{
+  margin-top: auto;
+  border-top: 1px solid rgba(26,24,20,0.12);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--encre);
+}
+
+/* Variante home : pas de bloc contenu sous le hero,
+   on étire le hero un peu plus pour le logotype */
+.phone.home .hero{ flex: 0 0 78%; }
+.phone.home .below{
+  background: var(--creme);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   NOTES / LÉGENDE en bas de page
+   ────────────────────────────────────────────────────────────── */
+.notes{
+  max-width: 880px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gris-doux);
+}
+.notes code{
+  font-family: 'JetBrains Mono', monospace;
+  background: #ddd6c5;
+  color: var(--encre);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.notes h3{
+  font-family: 'Archivo Black', sans-serif;
+  color: var(--encre);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <div class="eyebrow">Atelier terre Libre · prototype</div>
+  <h1>Menu mobile <em>in-place</em></h1>
+  <p>Deux écrans pour valider le ressenti : le menu se déploie à l'intérieur du hero jaune, en jouant avec le grand titre déjà présent.</p>
+</header>
+
+<section class="frames">
+
+  <!-- ════════════════════════════════════════════════════════════
+       ÉCRAN A — Page interne "Pratiquer"
+       (Pratiquer est la 1ère rubrique → les 3 autres apparaissent
+        en dessous quand le menu s'ouvre.)
+       ════════════════════════════════════════════════════════ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Écran A · <strong>page interne — pratiquer</strong></div>
+    <div class="phone">
+      <div class="app" data-current="0">
+
+        <!-- HERO JAUNE -->
+        <div class="hero">
+          <div class="topbar">
+            <div class="logo">tL<em>.</em></div>
+            <button class="burger" aria-label="Menu" type="button">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+
+          <div class="stage">
+            <div class="meta">§ 02 — Pratique en atelier</div>
+
+            <!-- Liste des rubriques.
+                 L'item courant (index 0) est rendu invisible et
+                 sa place est prise par le grand titre .giant -->
+            <ul class="menu" role="navigation" aria-label="Navigation principale">
+              <li class="is-current" data-idx="0">
+                <span class="label-current">pratiquer<em>.</em></span>
+              </li>
+              <li data-idx="1">événements<em>.</em></li>
+              <li data-idx="2">l'atelier<em>.</em></li>
+              <li data-idx="3">contact<em>.</em></li>
+            </ul>
+
+            <!-- Le grand titre courant : il rétrécit pour venir
+                 se poser sur la ligne de l'item courant. -->
+            <div class="giant">
+              <span class="underline">pratiquer<em>.</em></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aperçu de contenu sous le hero -->
+        <div class="below">
+          <div class="caps">Programme · printemps 2026</div>
+          <h2>Tournage, modelage, émaillage — 3 voies pour apprendre la terre.</h2>
+          <p>Inscriptions ouvertes pour les cycles de 6 et 12 séances. L'atelier accueille 6 personnes par session, dans une lumière du nord, rue de la Roquette.</p>
+          <div class="card">
+            <span>Cycle débutant</span>
+            <span>180 € / 6 séances</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       ÉCRAN B — Home (mot-marque "terre LIBRE")
+       Pas d'item courant : aucune rubrique soulignée.
+       Le mot-marque s'estompe en filigrane derrière le menu.
+       ════════════════════════════════════════════════════════ -->
+  <div class="frame-wrap">
+    <div class="frame-label">Écran B · <strong>home — terre libre</strong></div>
+    <div class="phone home">
+      <div class="app" data-current="-1">
+
+        <div class="hero">
+          <div class="topbar">
+            <div class="logo">tL<em>.</em></div>
+            <button class="burger" aria-label="Menu" type="button">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+
+          <div class="stage">
+            <div class="meta">§ Atelier de céramique · Paris XI</div>
+
+            <ul class="menu" role="navigation" aria-label="Navigation principale">
+              <li data-idx="0">pratiquer<em>.</em></li>
+              <li data-idx="1">événements<em>.</em></li>
+              <li data-idx="2">l'atelier<em>.</em></li>
+              <li data-idx="3">contact<em>.</em></li>
+            </ul>
+
+            <!-- Logotype "terre LIBRE" : terre regular, LIBRE italic -->
+            <div class="logotype">
+              terre<br><span class="libre">LIBRE<em>.</em></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="below">
+          <div class="caps">est. 2021 · 14 rue de la Roquette</div>
+          <h2>Une main, une terre, un feu.</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="notes">
+  <h3>Variables d'animation à ajuster</h3>
+  <p>
+    <code>--dur-item</code> durée de chaque rubrique ·
+    <code>--dur-title</code> durée du titre qui rétrécit/grandit ·
+    <code>--stagger</code> décalage entre rubriques ·
+    <code>--slide-from</code> distance horizontale d'arrivée ·
+    <code>--ease-out-expo</code> easing d'ouverture ·
+    <code>--ease-in-expo</code> easing de fermeture.
+    À la fermeture, l'ordre du stagger est inversé pour que le bloc
+    se replie depuis le bas.
+  </p>
+</section>
+
+<script>
+/* ───────────────────────────────────────────────────────────────
+   COMPORTEMENT DU MENU
+   ───────────────────────────────────────────────────────────────
+   Pour chaque .app :
+   1. Au tap sur le burger, on toggle .is-open
+   2. Quand ouvert :
+        - chaque <li> reçoit un transition-delay basé sur sa
+          POSITION VISUELLE par rapport à l'item courant
+          (les rubriques apparaissent en cascade autour du titre)
+        - si un item courant existe, on déplace .giant pour qu'il
+          s'aligne pile sur la ligne de cet item dans la liste
+   3. Quand fermé :
+        - les delays sont inversés (les rubriques du bas partent
+          en premier), le grand titre reprend sa taille géante
+*/
+
+const STAGGER = 70;   // ms — doit matcher --stagger
+const DUR_OUT = 420;  // ms — doit matcher --dur-item (pour la fermeture)
+
+function wireApp(app){
+  const burger  = app.querySelector('.burger');
+  const items   = Array.from(app.querySelectorAll('.menu li'));
+  const giant   = app.querySelector('.giant');
+  const current = parseInt(app.dataset.current, 10);
+
+  // Position visuelle du grand titre quand le menu est ouvert :
+  // on le pose sur la ligne de l'item courant.
+  function alignGiantToCurrent(){
+    if(!giant || current < 0) return;
+    const stage = app.querySelector('.stage');
+    const target = items[current];
+    if(!stage || !target) return;
+    const stageRect = stage.getBoundingClientRect();
+    const itemRect  = target.getBoundingClientRect();
+    // distance du bas du stage au bas de l'item
+    const bottomOffset = stageRect.bottom - itemRect.bottom
+                       - parseFloat(getComputedStyle(stage).paddingBottom);
+    giant.style.bottom = (bottomOffset + parseFloat(getComputedStyle(stage).paddingBottom)) + 'px';
+  }
+
+  // Applique les delays en cascade.
+  // opening = true  → on stagger depuis le haut vers le bas
+  // opening = false → on inverse pour que la fermeture se replie
+  function applyStagger(opening){
+    // ordre = distance à l'item courant si présent, sinon ordre naturel
+    items.forEach((li, i) => {
+      let order;
+      if(current >= 0){
+        order = Math.abs(i - current);   // l'item courant ouvre en 1er (mais il est caché)
+      } else {
+        order = i;
+      }
+      const delay = opening
+        ? order * STAGGER
+        : (items.length - 1 - order) * STAGGER;
+      li.style.transitionDelay = delay + 'ms';
+    });
+  }
+
+  burger.addEventListener('click', () => {
+    const willOpen = !app.classList.contains('is-open');
+    applyStagger(willOpen);
+    if(willOpen){
+      // calcule la position cible AVANT de lancer la transition
+      // (le bottom du giant doit s'animer vers la ligne de l'item courant)
+      alignGiantToCurrent();
+      app.classList.add('is-open');
+    } else {
+      app.classList.remove('is-open');
+      // on remet bottom à sa valeur par défaut (28px = padding du stage)
+      if(giant) giant.style.bottom = '';
+    }
+  });
+
+  // Si la fenêtre est redimensionnée pendant que le menu est ouvert,
+  // on réaligne le grand titre.
+  window.addEventListener('resize', () => {
+    if(app.classList.contains('is-open')) alignGiantToCurrent();
+  });
+}
+
+document.querySelectorAll('.app').forEach(wireApp);
+</script>
+
+</body>
+</html>

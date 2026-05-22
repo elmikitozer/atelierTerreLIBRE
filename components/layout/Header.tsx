@@ -4,19 +4,21 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LogoMark from "@/components/ui/LogoMark";
 import NavMobile from "./NavMobile";
+import { useMenu } from "@/lib/context/MenuContext";
 
 const NAV_LINKS = [
-  { label: "Pratiquer", href: "/pratiquer" },
-  { label: "Événements", href: "/evenements" },
-  { label: "L'atelier", href: "/l-atelier" },
-  { label: "Contact", href: "/contact" },
+  { label: "pratiquer",  href: "/pratiquer"  },
+  { label: "évènements", href: "/evenements" },
+  { label: "l'atelier", href: "/l-atelier"  },
+  { label: "contact",   href: "/contact"    },
 ] as const;
 
 export default function Header() {
   const pathname = usePathname();
+  const { closeImmediate } = useMenu();
 
   return (
-    <header className="bg-yellow">
+    <header className="bg-yellow relative z-10">
       {/* ── Desktop ─────────────────────────────── */}
       <div className="hidden md:flex items-center justify-between px-12 py-6">
         <Link
@@ -60,6 +62,7 @@ export default function Header() {
       <div className="flex md:hidden items-center justify-between px-5 py-4">
         <Link
           href="/"
+          onClick={closeImmediate}
           className="flex items-center gap-2.5"
           aria-label="Atelier Terre Libre — Accueil"
         >

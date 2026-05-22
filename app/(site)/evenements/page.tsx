@@ -17,7 +17,7 @@ export default function EvenementsPage() {
   return (
     <>
       <PageHero
-        pageName="événements"
+        pageName="évènements"
         supraLeft="ANNIVERSAIRES · TEAM BUILDING · PRIVATISATIONS"
         supraRight="TERRE LIBRE · PARIS IXe"
         compact
