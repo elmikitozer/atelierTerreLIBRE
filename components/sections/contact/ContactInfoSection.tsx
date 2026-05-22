@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Reveal } from "@/components/ui/Reveal"
 
 const METRO = [
   { station: "Place de Clichy", lines: "M2, M13" },
@@ -16,7 +17,7 @@ export default function ContactInfoSection() {
       <div className="md:grid md:grid-cols-12 md:gap-16">
 
         {/* Colonne gauche — coordonnées */}
-        <div className="md:col-span-6 flex flex-col gap-10">
+        <Reveal delay={0} className="md:col-span-6 flex flex-col gap-10">
 
           {/* Adresse */}
           <div>
@@ -93,10 +94,10 @@ export default function ContactInfoSection() {
             </div>
           </div>
 
-        </div>
+        </Reveal>
 
         {/* Colonne droite — accès */}
-        <div className="mt-12 md:mt-0 md:col-span-6">
+        <Reveal delay={0.1} className="mt-12 md:mt-0 md:col-span-6">
 
           <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-6">
             Accès
@@ -142,7 +143,7 @@ export default function ContactInfoSection() {
             </ul>
           </div>
 
-        </div>
+        </Reveal>
 
       </div>
     </section>

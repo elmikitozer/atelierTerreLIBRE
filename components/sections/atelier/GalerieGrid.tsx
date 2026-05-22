@@ -6,6 +6,7 @@ import Lightbox from "yet-another-react-lightbox"
 import "yet-another-react-lightbox/styles.css"
 import { urlFor } from "@/lib/sanity/image"
 import type { GaleriePhoto } from "@/lib/sanity/queries"
+import { Reveal } from "@/components/ui/Reveal"
 
 const SPANS = [
   "col-span-2 row-span-2",
@@ -38,45 +39,53 @@ export default function GalerieGrid({ photos }: Props) {
 
   return (
     <>
-      {/* Desktop — grille asymétrique */}
+      {/* Desktop — grille asymétrique, chaque photo se révèle individuellement */}
       <div className="hidden md:grid grid-cols-4 grid-rows-[200px_200px_200px] gap-2 auto-rows-[200px]">
         {photos.map((photo, i) => (
-          <button
+          <Reveal
             key={photo._id}
-            onClick={() => openAt(i)}
-            className={`relative overflow-hidden rounded-sm group cursor-zoom-in ${SPANS[i % SPANS.length]}`}
-            aria-label={`Voir la photo ${i + 1} en grand`}
+            className={`relative overflow-hidden rounded-sm ${SPANS[i % SPANS.length]}`}
           >
-            <Image
-              src={urlFor(photo.image).width(1600).quality(90).url()}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
-              alt={photo.caption || "Atelier Terre Libre"}
-              loading="lazy"
-            />
-          </button>
+            <button
+              onClick={() => openAt(i)}
+              className="absolute inset-0 group cursor-zoom-in"
+              aria-label={`Voir la photo ${i + 1} en grand`}
+            >
+              <Image
+                src={urlFor(photo.image).width(1600).quality(90).url()}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
+                alt={photo.caption || "Atelier Terre Libre"}
+                loading="lazy"
+              />
+            </button>
+          </Reveal>
         ))}
       </div>
 
-      {/* Mobile — 2 colonnes */}
+      {/* Mobile — 2 colonnes, même approche */}
       <div className="grid md:hidden grid-cols-2 gap-2">
         {photos.map((photo, i) => (
-          <button
+          <Reveal
             key={photo._id}
-            onClick={() => openAt(i)}
-            className="relative aspect-square overflow-hidden rounded-sm cursor-zoom-in"
-            aria-label={`Voir la photo ${i + 1} en grand`}
+            className="relative aspect-square overflow-hidden rounded-sm"
           >
-            <Image
-              src={urlFor(photo.image).width(800).quality(85).url()}
-              fill
-              className="object-cover"
-              sizes="50vw"
-              alt={photo.caption || "Atelier Terre Libre"}
-              loading="lazy"
-            />
-          </button>
+            <button
+              onClick={() => openAt(i)}
+              className="absolute inset-0 cursor-zoom-in"
+              aria-label={`Voir la photo ${i + 1} en grand`}
+            >
+              <Image
+                src={urlFor(photo.image).width(800).quality(85).url()}
+                fill
+                className="object-cover"
+                sizes="50vw"
+                alt={photo.caption || "Atelier Terre Libre"}
+                loading="lazy"
+              />
+            </button>
+          </Reveal>
         ))}
       </div>
 

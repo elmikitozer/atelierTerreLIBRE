@@ -1,5 +1,6 @@
 import type { ReviewsData } from "@/lib/types/reviews"
 import ReviewsCarousel from "./ReviewsCarousel"
+import { Reveal } from "@/components/ui/Reveal"
 
 async function getReviews(): Promise<ReviewsData | null> {
   try {
@@ -44,6 +45,7 @@ export default async function HomeReviews() {
   if (goodReviews.length === 0) return null
 
   return (
+    <Reveal>
     <section className="bg-cream border-t border-ink/10 py-16 md:py-24 px-5 md:px-12">
       <div className="max-w-screen-lg mx-auto">
 
@@ -89,5 +91,6 @@ export default async function HomeReviews() {
         )}
       </div>
     </section>
+    </Reveal>
   )
 }

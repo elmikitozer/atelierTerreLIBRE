@@ -19,7 +19,7 @@ export default function AtelierPage() {
     <>
       <PageHero
         pageName="l'atelier"
-        supraLeft="DEPUIS 1985 · MÈRE EN FILLE"
+        supraLeft="DEPUIS 1985 · DE MÈRE EN FILLE"
         supraRight="TERRE LIBRE · PARIS IXe"
       />
       <AtelierIntroSection />

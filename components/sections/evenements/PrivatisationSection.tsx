@@ -1,9 +1,10 @@
 import Link from "next/link"
+import { Reveal } from "@/components/ui/Reveal"
 
 export default function PrivatisationSection() {
   return (
     <section id="privatisation" className="px-5 md:px-12 py-12 md:py-16 bg-yellow border-b border-ink/10">
-      <div className="md:grid md:grid-cols-12 md:gap-10 md:items-end">
+      <Reveal className="md:grid md:grid-cols-12 md:gap-10 md:items-end">
 
         <div className="md:col-span-7">
           <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-ink/60 mb-3">
@@ -36,7 +37,7 @@ export default function PrivatisationSection() {
           </a>
         </div>
 
-      </div>
+      </Reveal>
     </section>
   )
 }

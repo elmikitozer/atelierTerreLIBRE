@@ -1,9 +1,11 @@
+import { Reveal } from "@/components/ui/Reveal"
+
 export default function PedagogieSection() {
   return (
     <section className="border-b border-ink/10">
 
       {/* Intro */}
-      <div className="px-5 md:px-12 py-14 md:py-20 bg-cream">
+      <Reveal className="px-5 md:px-12 py-14 md:py-20 bg-cream">
         <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-4">
           La pédagogie
         </p>
@@ -25,18 +27,18 @@ export default function PedagogieSection() {
             </p>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* Pull quote — fond yellow */}
-      <div className="px-5 md:px-12 py-12 md:py-16 bg-yellow">
+      <Reveal className="px-5 md:px-12 py-12 md:py-16 bg-yellow">
         <blockquote className="font-news italic text-[22px] md:text-[36px] leading-[1.25] text-ink max-w-3xl">
           « Priment l&apos;intuition et le contact avec la terre,
           qui libèrent toutes les énergies et les émotions. »
         </blockquote>
-      </div>
+      </Reveal>
 
       {/* Suite */}
-      <div className="px-5 md:px-12 py-14 md:py-20 bg-cream">
+      <Reveal className="px-5 md:px-12 py-14 md:py-20 bg-cream">
         <div className="md:grid md:grid-cols-12 md:gap-16">
           <div className="md:col-span-7">
             <p className="font-news text-[16px] md:text-[18px] leading-[1.75] text-ink">
@@ -53,7 +55,7 @@ export default function PedagogieSection() {
             </p>
           </div>
         </div>
-      </div>
+      </Reveal>
 
     </section>
   )

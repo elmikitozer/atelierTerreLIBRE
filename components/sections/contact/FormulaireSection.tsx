@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Reveal } from "@/components/ui/Reveal"
 
 const SUJETS = [
   "Cours d'essai",
@@ -58,7 +59,7 @@ export default function FormulaireSection() {
       <div className="md:grid md:grid-cols-12 md:gap-16">
 
         {/* Colonne gauche — intro */}
-        <div className="md:col-span-5 mb-10 md:mb-0">
+        <Reveal delay={0} className="md:col-span-5 mb-10 md:mb-0">
           <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-ink/60 mb-4">
             Écrivez-nous
           </p>
@@ -78,10 +79,10 @@ export default function FormulaireSection() {
               bonjour.atelierterrelibre@gmail.com
             </a>
           </p>
-        </div>
+        </Reveal>
 
         {/* Colonne droite — formulaire */}
-        <div className="md:col-span-7">
+        <Reveal delay={0.1} className="md:col-span-7">
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">
 
             {/* Nom */}
@@ -175,7 +176,7 @@ export default function FormulaireSection() {
             </div>
 
           </form>
-        </div>
+        </Reveal>
 
       </div>
     </section>

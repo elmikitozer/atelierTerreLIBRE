@@ -1,10 +1,12 @@
 import Link from "next/link"
 import { getRentree } from "@/lib/sanity/queries"
+import { Reveal } from "@/components/ui/Reveal"
 
 export default async function CallOutRentree() {
   const rentree = await getRentree()
 
   return (
+    <Reveal>
     <section className="bg-ink text-yellow px-5 md:px-12 py-8 md:py-10">
       <div className="max-w-screen-lg mx-auto md:flex md:items-center md:gap-12">
 
@@ -42,5 +44,6 @@ export default async function CallOutRentree() {
 
       </div>
     </section>
+    </Reveal>
   )
 }
