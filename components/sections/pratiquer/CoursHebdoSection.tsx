@@ -66,6 +66,14 @@ export default async function CoursHebdoSection() {
                 alt="Atelier Terre Libre — cours enfants"
                 sizes="(max-width: 768px) 0px, 33vw"
               />
+              <div className="mt-3 bg-ink text-yellow rounded-sm p-4">
+                <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
+                  Cours d&apos;essai
+                </p>
+                <p className="font-news italic text-[14px] md:text-[15px] mt-1 leading-snug">
+                  Venez modeler une première fois, sans engagement. Nous écrire pour réserver.
+                </p>
+              </div>
             </div>
 
             <div className="md:col-span-4">
@@ -130,14 +138,6 @@ export default async function CoursHebdoSection() {
                 objectPosition="center 1%"
                 sizes="(max-width: 768px) 0px, 33vw"
               />
-              <div className="mt-3 bg-ink text-yellow rounded-sm p-4">
-                <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
-                  Cours d&apos;essai
-                </p>
-                <p className="font-news italic text-[14px] md:text-[15px] mt-1 leading-snug">
-                  Venez modeler une première fois, sans engagement. Nous écrire pour réserver.
-                </p>
-              </div>
             </div>
 
             <div className="md:col-span-4">

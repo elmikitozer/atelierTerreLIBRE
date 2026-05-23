@@ -174,7 +174,7 @@ export default function StyledMap() {
               boxShadow: "0 2px 8px rgba(26, 24, 20, 0.15)",
             }}>
               <span style={{ fontWeight: 400 }}>atelier terre</span>
-              <span style={{ fontWeight: 900, fontStyle: "italic", marginLeft: "3px", color: "#f1dd6a" }}>
+              <span style={{ fontWeight: 900, fontStyle: "italic", color: "#f1dd6a" }}>
                 LIBRE
               </span>
             </div>

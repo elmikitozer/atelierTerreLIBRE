@@ -1,15 +1,41 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Reveal } from "@/components/ui/Reveal"
 
 const METRO = [
-  { station: "Place de Clichy", lines: "M2, M13" },
-  { station: "Liège", lines: "M13" },
+  {
+    station: "Place de Clichy",
+    badges: [
+      { src: "/metro-line-2.svg", w: 28 },
+      { src: "/metro-line-13.svg", w: 28 },
+    ],
+  },
+  {
+    station: "Liège",
+    badges: [{ src: "/metro-line-13.svg", w: 28 }],
+  },
 ]
 
 const BUS = [
-  "Ligne 68 — Place de Clichy",
-  "Ligne 74 — Trinité d'Estienne d'Orves",
+  { station: "Place de Clichy", badges: [{ src: "/bus-line-68.svg", w: 44 }] },
+  { station: "Trinité d'Estienne d'Orves", badges: [{ src: "/bus-line-74.svg", w: 44 }] },
 ]
+
+function TransportBlock({ station, badges }: {
+  station: string
+  badges: { src: string; w: number }[]
+}) {
+  return (
+    <div className="flex items-center justify-between bg-ink text-yellow rounded-sm px-4 py-3">
+      <span className="font-news text-[15px]">{station}</span>
+      <div className="flex items-center gap-1.5">
+        {badges.map((b) => (
+          <Image key={b.src} src={b.src} alt="" width={b.w} height={28} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function ContactInfoSection() {
   return (
@@ -110,37 +136,21 @@ export default function ContactInfoSection() {
             </p>
             <div className="flex flex-col gap-2">
               {METRO.map((m) => (
-                <div key={m.station} className="flex items-center justify-between bg-ink text-yellow rounded-sm px-4 py-3">
-                  <span className="font-news text-[15px]">{m.station}</span>
-                  <span className="font-mono text-[10px] tracking-[0.15em] opacity-60">{m.lines}</span>
-                </div>
+                <TransportBlock key={m.station} station={m.station} badges={m.badges} />
               ))}
             </div>
           </div>
 
           {/* Bus */}
-          <div className="border-t border-ink/10 pt-6 mb-7">
+          <div className="border-t border-ink/10 pt-6">
             <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute/70 mb-3">
               Bus
             </p>
-            <ul className="flex flex-col gap-2">
-              {BUS.map((ligne) => (
-                <li key={ligne} className="font-news text-[15px] text-ink/80 leading-snug">
-                  {ligne}
-                </li>
+            <div className="flex flex-col gap-2">
+              {BUS.map((b) => (
+                <TransportBlock key={b.station} station={b.station} badges={b.badges} />
               ))}
-            </ul>
-          </div>
-
-          {/* À pied */}
-          <div className="border-t border-ink/10 pt-6">
-            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute/70 mb-3">
-              À pied
-            </p>
-            <ul className="flex flex-col gap-2">
-              <li className="font-news text-[15px] text-ink/80">4 minutes depuis Place de Clichy</li>
-              <li className="font-news text-[15px] text-ink/80">Square Berlioz juste à côté</li>
-            </ul>
+            </div>
           </div>
 
         </Reveal>
