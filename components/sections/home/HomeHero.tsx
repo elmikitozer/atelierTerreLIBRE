@@ -87,7 +87,7 @@ export default function HomeHero() {
             <p className="font-news italic text-[18px] leading-[1.35] text-ink/80">
               Libérez votre créativité, laissez la terre parler.
             </p>
-            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-ink/45 mt-2">
+            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-ink mt-2">
               — Sylvia &amp; Déborah, fondatrices
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function HomeHero() {
               <p className="font-news italic text-[16px] leading-[1.35] text-ink/80">
                 Libérez votre créativité, laissez la terre parler.
               </p>
-              <p className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink/45 mt-2">
+              <p className="font-mono text-[8px] tracking-[0.18em] uppercase text-ink mt-2">
                 — Sylvia &amp; Déborah, fondatrices
               </p>
             </div>

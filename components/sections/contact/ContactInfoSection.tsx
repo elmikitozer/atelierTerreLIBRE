@@ -131,7 +131,7 @@ export default function ContactInfoSection() {
 
           {/* Métro */}
           <div className="mb-7">
-            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute/70 mb-3">
+            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-ink mb-3">
               Métro
             </p>
             <div className="flex flex-col gap-2">
@@ -143,7 +143,7 @@ export default function ContactInfoSection() {
 
           {/* Bus */}
           <div className="border-t border-ink/10 pt-6">
-            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute/70 mb-3">
+            <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-ink mb-3">
               Bus
             </p>
             <div className="flex flex-col gap-2">

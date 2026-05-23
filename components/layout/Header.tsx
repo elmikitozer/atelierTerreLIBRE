@@ -24,12 +24,12 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="Atelier Terre Libre — Accueil"
         >
           <LogoMark size={44} />
           <span className="font-archivo-black text-[18px] leading-none text-ink">
             terre<span className="italic">LIBRE</span>
           </span>
+          <span className="sr-only">— Accueil</span>
         </Link>
 
         <nav
@@ -64,12 +64,12 @@ export default function Header() {
           href="/"
           onClick={closeImmediate}
           className="flex items-center gap-2.5"
-          aria-label="Atelier Terre Libre — Accueil"
         >
           <LogoMark size={36} />
           <span className="font-archivo-black text-[15px] leading-none text-ink">
             terre<span className="italic">LIBRE</span>
           </span>
+          <span className="sr-only">— Accueil</span>
         </Link>
         <NavMobile />
       </div>

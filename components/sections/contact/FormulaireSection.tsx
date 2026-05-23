@@ -60,7 +60,7 @@ export default function FormulaireSection() {
 
         {/* Colonne gauche — intro */}
         <Reveal delay={0} className="md:col-span-5 mb-10 md:mb-0">
-          <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-ink/60 mb-4">
+          <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-ink mb-4">
             Écrivez-nous
           </p>
           <h2 className="font-archivo-black text-[28px] md:text-[36px] leading-[0.95] text-ink mb-6">
@@ -87,7 +87,7 @@ export default function FormulaireSection() {
 
             {/* Nom */}
             <div>
-              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 block mb-2">
+              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink block mb-2">
                 Nom
               </label>
               <input
@@ -105,7 +105,7 @@ export default function FormulaireSection() {
 
             {/* Email */}
             <div>
-              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 block mb-2">
+              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink block mb-2">
                 Email
               </label>
               <input
@@ -123,7 +123,7 @@ export default function FormulaireSection() {
 
             {/* Sujet — pills */}
             <div>
-              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 block mb-3">
+              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink block mb-3">
                 Sujet
               </label>
               <div className="flex flex-wrap gap-2">
@@ -149,7 +149,7 @@ export default function FormulaireSection() {
 
             {/* Message */}
             <div>
-              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 block mb-2">
+              <label className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink block mb-2">
                 Message
               </label>
               <textarea

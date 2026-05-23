@@ -7,7 +7,7 @@ export default async function GalerieSection() {
   return (
     <section className="px-5 md:px-12 py-14 md:py-20 bg-ink">
 
-      <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-cream/40 mb-3">
+      <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-cream mb-3">
         Dans l&apos;atelier
       </p>
       <h2 className="font-archivo-black text-[28px] md:text-[42px] leading-[0.95] text-cream mb-10 md:mb-14">

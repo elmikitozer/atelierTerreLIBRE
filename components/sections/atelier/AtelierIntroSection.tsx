@@ -45,12 +45,12 @@ export default async function AtelierIntroSection() {
         <Reveal delay={0.2} className="mt-10 md:mt-0 md:col-span-5">
           {rentree ? (
             <div className="bg-yellow rounded-sm p-6 md:p-8">
-              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink/60 mb-4">
+              <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink mb-4">
                 Inscriptions ouvertes
               </p>
               <div className="flex flex-col gap-3">
                 <div className="border-b border-ink/15 pb-3">
-                  <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink/50">
+                  <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink">
                     Adultes
                   </p>
                   <p className="font-archivo-black text-[18px] md:text-[20px] text-ink mt-1">
@@ -58,7 +58,7 @@ export default async function AtelierIntroSection() {
                   </p>
                 </div>
                 <div className="border-b border-ink/15 pb-3">
-                  <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink/50">
+                  <p className="font-mono text-[10px] tracking-[0.18em] uppercase text-ink">
                     Enfants
                   </p>
                   <p className="font-archivo-black text-[18px] md:text-[20px] text-ink mt-1">

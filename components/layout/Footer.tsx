@@ -41,7 +41,7 @@ export default function Footer() {
 
         {/* Col 2 — Adresse */}
         <div className="col-span-6 md:col-span-3">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-mute mb-3">
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink mb-3">
             Atelier
           </p>
           <a
@@ -60,7 +60,7 @@ export default function Footer() {
 
         {/* Col 3 — Contact */}
         <div className="col-span-6 md:col-span-4">
-          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-mute mb-3">
+          <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink mb-3">
             Nous écrire
           </p>
           <div className="font-archivo text-[14px] leading-relaxed text-ink space-y-1">
