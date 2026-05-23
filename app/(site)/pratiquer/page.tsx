@@ -4,7 +4,7 @@ import PageHero from "@/components/hero/PageHero"
 export const metadata: Metadata = {
   title: "Pratiquer — Cours et stages",
   description:
-    "Cours hebdomadaires de poterie et stages à l'Atelier Terre Libre, Paris 9e. Pour adultes et enfants. À partir de 4 ans.",
+    "Cours hebdomadaires de poterie et céramique et stages à Paris 9e. Pour adultes et enfants dès 4 ans. Modelage, tournage, émaillage.",
   alternates: { canonical: "/pratiquer" },
 }
 import CallOutRentree from "@/components/sections/CallOutRentree"

@@ -4,7 +4,7 @@ import PageHero from '@/components/hero/PageHero';
 export const metadata: Metadata = {
   title: 'Contact — Nous écrire, nous appeler',
   description:
-    '17 rue de Vintimille, 75009 Paris. Métro Place de Clichy. Téléphone, email, formulaire de contact. Atelier Terre Libre.',
+    '17 rue de Vintimille, 75009 Paris. Métro Place de Clichy. Cours de poterie et céramique : nous écrire, nous appeler, venir.',
   alternates: { canonical: '/contact' },
 };
 import ContactInfoSection from '@/components/sections/contact/ContactInfoSection';

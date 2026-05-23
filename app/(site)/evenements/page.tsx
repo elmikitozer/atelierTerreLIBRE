@@ -4,7 +4,7 @@ import PageHero from '@/components/hero/PageHero';
 export const metadata: Metadata = {
   title: 'Événements — Anniversaires, team building, privatisation',
   description:
-    "Anniversaires d'enfants, team building d'entreprise, privatisation de l'atelier. Atelier Terre Libre, Paris 9e.",
+    "Anniversaires d'enfants en céramique, team building et stages de poterie en famille à Paris 9e. Une parenthèse créative autour de la terre.",
   alternates: { canonical: '/evenements' },
 };
 import AnniversairesSection from '@/components/sections/evenements/AnniversairesSection';

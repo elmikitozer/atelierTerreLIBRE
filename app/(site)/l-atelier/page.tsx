@@ -4,7 +4,7 @@ import PageHero from '@/components/hero/PageHero';
 export const metadata: Metadata = {
   title: "L'atelier — Notre histoire",
   description:
-    "Atelier de modelage et céramique de mère en fille depuis 40 ans. Pédagogie inspirée d'Arno Stern. Sylvia & Déborah Katuszewski.",
+    "Atelier de poterie et céramique de mère en fille à Paris 9e depuis 40 ans. Notre histoire, nos valeurs, Sylvia & Déborah.",
   alternates: { canonical: '/l-atelier' },
 };
 import AtelierIntroSection from '@/components/sections/atelier/AtelierIntroSection';
