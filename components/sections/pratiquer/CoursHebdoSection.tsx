@@ -66,7 +66,7 @@ export default async function CoursHebdoSection() {
                 alt="Atelier Terre Libre — cours enfants"
                 sizes="(max-width: 768px) 0px, 33vw"
               />
-              <div className="mt-3 bg-ink text-yellow rounded-sm p-4">
+              <div className="mt-3 bg-ink text-accent rounded-sm p-4">
                 <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
                   Cours d&apos;essai
                 </p>
@@ -122,7 +122,7 @@ export default async function CoursHebdoSection() {
               En journée et en soirée, du lundi au samedi. Tous niveaux.
             </p>
             {adultes?.adulteSurCreneauEnfant && (
-              <div className="mt-4 md:inline-block bg-yellow rounded-sm px-4 py-3">
+              <div className="mt-4 md:inline-block bg-accent rounded-sm px-4 py-3">
                 <p className="font-news italic text-[14px] md:text-[15px] leading-snug text-ink">
                   Les adultes sont les bienvenus sur les créneaux enfants !
                 </p>

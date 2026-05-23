@@ -40,7 +40,7 @@ export default async function StagesSection() {
             <div className="md:col-span-5 mt-8 md:mt-0 space-y-3">
 
               {/* Tarif */}
-              <div className="bg-ink text-yellow rounded-sm p-5">
+              <div className="bg-ink text-accent rounded-sm p-5">
                 <p className="font-mono text-[9px] md:text-[10px] tracking-[0.22em] uppercase opacity-70">
                   Tarif famille
                 </p>
@@ -103,7 +103,7 @@ export default async function StagesSection() {
               {/* CTA */}
               <Link
                 href="/contact"
-                className="block bg-ink text-yellow rounded-full text-center font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 hover:opacity-80 transition-opacity"
+                className="block bg-ink text-accent rounded-full text-center font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 hover:opacity-80 transition-opacity"
               >
                 Réserver un stage dimanche →
               </Link>
@@ -114,7 +114,7 @@ export default async function StagesSection() {
       </Reveal>
 
       {/* ── Stages vacances ─────────────────────────── */}
-      <section className="px-5 md:px-12 py-12 md:py-16 bg-yellow border-b border-ink/10">
+      <section className="px-5 md:px-12 py-12 md:py-16 bg-accent border-b border-ink/10">
 
         <Reveal className="mb-10 md:mb-12">
           <h2
@@ -194,7 +194,7 @@ export default async function StagesSection() {
               </div>
             </RevealItem>
 
-            <RevealItem className="bg-ink text-yellow rounded-sm p-5 md:p-6">
+            <RevealItem className="bg-ink text-accent rounded-sm p-5 md:p-6">
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
                 Prochaines dates
               </p>
@@ -207,7 +207,7 @@ export default async function StagesSection() {
                     key={s._id}
                     className={`flex items-baseline justify-between text-[13px] md:text-[14px] ${
                       i < vacances.length - 1
-                        ? "border-b border-yellow/15 pb-3"
+                        ? "border-b border-accent/15 pb-3"
                         : ""
                     }`}
                   >

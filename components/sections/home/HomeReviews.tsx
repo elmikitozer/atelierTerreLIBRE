@@ -25,7 +25,7 @@ function Stars({ rating, size = 18 }: { rating: number; size?: number }) {
           width={size}
           height={size}
           viewBox="0 0 16 16"
-          fill={i <= Math.round(rating) ? "#f1dd6a" : "#d6cfbf"}
+          fill={i <= Math.round(rating) ? "var(--color-accent)" : "#d6cfbf"}
           aria-hidden="true"
         >
           <path d="M8 1l1.85 3.75 4.15.6-3 2.92.71 4.13L8 10.25l-3.71 1.95.71-4.13L2 5.35l4.15-.6L8 1z" />

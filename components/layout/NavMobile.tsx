@@ -29,20 +29,20 @@ export default function NavMobile() {
     >
       {/* Ligne haute → diagonale / */}
       <motion.span
-        className="absolute block w-4 h-[2px] bg-yellow"
+        className="absolute block w-4 h-[2px] bg-accent"
         animate={isOpen ? { y: 0, rotate: 45 } : { y: -4, rotate: 0 }}
         transition={{ duration: 0.3, ease: EASE_OUT }}
       />
       {/* Ligne courte → disparaît */}
       <motion.span
-        className="absolute block w-2.5 h-[2px] bg-yellow"
+        className="absolute block w-2.5 h-[2px] bg-accent"
         style={{ originX: "0%" }}
         animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
         transition={{ duration: 0.2 }}
       />
       {/* Ligne basse → diagonale \ */}
       <motion.span
-        className="absolute block w-4 h-[2px] bg-yellow"
+        className="absolute block w-4 h-[2px] bg-accent"
         animate={isOpen ? { y: 0, rotate: -45 } : { y: 4, rotate: 0 }}
         transition={{ duration: 0.3, ease: EASE_OUT }}
       />

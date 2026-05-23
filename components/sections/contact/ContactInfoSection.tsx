@@ -26,7 +26,7 @@ function TransportBlock({ station, badges }: {
   badges: { src: string; w: number }[]
 }) {
   return (
-    <div className="flex items-center justify-between bg-ink text-yellow rounded-sm px-4 py-3">
+    <div className="flex items-center justify-between bg-ink text-accent rounded-sm px-4 py-3">
       <span className="font-news text-[15px]">{station}</span>
       <div className="flex items-center gap-1.5">
         {badges.map((b) => (

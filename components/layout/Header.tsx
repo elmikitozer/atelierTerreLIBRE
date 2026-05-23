@@ -18,7 +18,7 @@ export default function Header() {
   const { closeImmediate } = useMenu();
 
   return (
-    <header className="bg-yellow relative z-10">
+    <header className="bg-accent relative z-10">
       {/* ── Desktop ─────────────────────────────── */}
       <div className="hidden md:flex items-center justify-between px-12 py-6">
         <Link
@@ -51,7 +51,7 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="ml-2 px-4 py-2 rounded-full bg-ink text-yellow font-semibold text-[13px]"
+            className="ml-2 px-4 py-2 rounded-full bg-ink text-accent font-semibold text-[13px]"
           >
             Cours d&apos;essai
           </Link>

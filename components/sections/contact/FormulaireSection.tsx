@@ -55,7 +55,7 @@ export default function FormulaireSection() {
   }
 
   return (
-    <section className="px-5 md:px-12 py-14 md:py-20 bg-yellow border-b border-ink/10">
+    <section className="px-5 md:px-12 py-14 md:py-20 bg-accent border-b border-ink/10">
       <div className="md:grid md:grid-cols-12 md:gap-16">
 
         {/* Colonne gauche — intro */}
@@ -134,7 +134,7 @@ export default function FormulaireSection() {
                     onClick={() => setSujet(s)}
                     className={`font-manrope text-[13px] font-medium px-4 py-2 rounded-full border transition-all ${
                       sujet === s
-                        ? "bg-ink text-yellow border-ink"
+                        ? "bg-ink text-accent border-ink"
                         : "bg-transparent text-ink border-ink/30 hover:border-ink/70"
                     }`}
                   >

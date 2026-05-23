@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal"
 
 export default function PrivatisationSection() {
   return (
-    <section id="privatisation" className="px-5 md:px-12 py-12 md:py-16 bg-yellow border-b border-ink/10">
+    <section id="privatisation" className="px-5 md:px-12 py-12 md:py-16 bg-accent border-b border-ink/10">
       <Reveal className="md:grid md:grid-cols-12 md:gap-10 md:items-end">
 
         <div className="md:col-span-7">
@@ -25,7 +25,7 @@ export default function PrivatisationSection() {
         <div className="md:col-span-5 mt-8 md:mt-0 flex flex-col gap-4 md:items-start">
           <Link
             href="/contact"
-            className="inline-block bg-ink text-yellow rounded-full font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 px-8 hover:opacity-80 transition-opacity"
+            className="inline-block bg-ink text-accent rounded-full font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 px-8 hover:opacity-80 transition-opacity"
           >
             Nous écrire →
           </Link>

@@ -40,7 +40,7 @@ export default function HomeHero() {
   }
 
   return (
-    <section className="bg-yellow">
+    <section className="bg-accent">
 
       {/* ── Barre éditoriale ────────────────────── */}
       <div className="px-5 md:px-12 pt-2 pb-2">
@@ -59,7 +59,7 @@ export default function HomeHero() {
       <div className="hidden md:grid grid-cols-12">
 
         {/* Gauche */}
-        <div className="col-span-7 bg-yellow px-12 pt-12 pb-14 overflow-hidden flex flex-col">
+        <div className="col-span-7 bg-accent px-12 pt-12 pb-14 overflow-hidden flex flex-col">
           <h1
             className="font-archivo-black leading-[0.85] tracking-[-0.02em] text-ink"
             style={{ fontSize: "var(--fs-brand)" }}
@@ -71,7 +71,7 @@ export default function HomeHero() {
           <div className="flex items-center gap-5 mt-10">
             <Link
               href="/pratiquer"
-              className="px-6 py-3.5 rounded-full bg-ink text-yellow font-manrope font-semibold text-[14px]"
+              className="px-6 py-3.5 rounded-full bg-ink text-accent font-manrope font-semibold text-[14px]"
             >
               Découvrir les cours
             </Link>
@@ -99,7 +99,7 @@ export default function HomeHero() {
             <div className="relative h-[500px] rounded-sm overflow-hidden">
               <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
-            <div className="absolute -bottom-3 left-3 bg-ink text-yellow px-3 py-2 rounded-sm">
+            <div className="absolute -bottom-3 left-3 bg-ink text-accent px-3 py-2 rounded-sm">
               <p className="font-mono text-[9px] tracking-[0.22em] uppercase opacity-80">
                 ↑ Sylvia &amp; Déborah
               </p>
@@ -131,7 +131,7 @@ export default function HomeHero() {
       <div className="md:hidden">
 
         {/* Bloc jaune — position relative pour l'overlay items */}
-        <div className="bg-yellow px-5 pt-12 pb-10 overflow-hidden relative flex flex-col gap-8">
+        <div className="bg-accent px-5 pt-12 pb-10 overflow-hidden relative flex flex-col gap-8">
 
           {/* h1 — reste en place, s'efface */}
           <h1
@@ -157,7 +157,7 @@ export default function HomeHero() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/pratiquer"
-                className="py-3.5 rounded-full bg-ink text-yellow font-manrope font-semibold text-[14px] text-center"
+                className="py-3.5 rounded-full bg-ink text-accent font-manrope font-semibold text-[14px] text-center"
               >
                 Découvrir les cours
               </Link>
@@ -233,7 +233,7 @@ export default function HomeHero() {
             <div className="relative h-[360px] rounded-sm overflow-hidden">
               <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
-            <div className="absolute -bottom-3 left-3 bg-ink text-yellow px-3 py-2 rounded-sm">
+            <div className="absolute -bottom-3 left-3 bg-ink text-accent px-3 py-2 rounded-sm">
               <p className="font-mono text-[8px] tracking-[0.22em] uppercase opacity-80">
                 ↑ Sylvia &amp; Déborah
               </p>

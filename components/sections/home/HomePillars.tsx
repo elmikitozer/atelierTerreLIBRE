@@ -61,7 +61,7 @@ export default function HomePillars() {
           <RevealItem key={title}>
             <Link
               href={href}
-              className="h-full bg-white border border-ink/10 rounded-sm flex flex-col hover:bg-yellow/30 transition-colors group overflow-hidden"
+              className="h-full bg-white border border-ink/10 rounded-sm flex flex-col hover:bg-accent/30 transition-colors group overflow-hidden"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
@@ -94,7 +94,7 @@ export default function HomePillars() {
           <RevealItem key={title}>
             <Link
               href={href}
-              className="bg-white border border-ink/10 rounded-sm flex items-center gap-4 hover:bg-yellow/30 transition-colors overflow-hidden"
+              className="bg-white border border-ink/10 rounded-sm flex items-center gap-4 hover:bg-accent/30 transition-colors overflow-hidden"
             >
               <div className="relative w-20 h-20 shrink-0 overflow-hidden">
                 <Image

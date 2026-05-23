@@ -10,7 +10,7 @@ const NAV_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-yellow">
+    <footer className="bg-accent">
       {/* ── Colonnes principales ─────────────────── */}
       <div className="px-8 md:px-12 pt-14 pb-8 grid grid-cols-12 gap-8">
 
@@ -96,7 +96,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-8 h-8 rounded-full bg-ink text-yellow grid place-items-center hover:opacity-80 transition-opacity"
+              className="w-8 h-8 rounded-full bg-ink text-accent grid place-items-center hover:opacity-80 transition-opacity"
             >
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -108,7 +108,7 @@ export default function Footer() {
             <a
               href="#"
               aria-label="Facebook"
-              className="w-8 h-8 rounded-full bg-ink text-yellow grid place-items-center hover:opacity-80 transition-opacity"
+              className="w-8 h-8 rounded-full bg-ink text-accent grid place-items-center hover:opacity-80 transition-opacity"
             >
               <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />

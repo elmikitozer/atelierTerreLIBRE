@@ -44,7 +44,7 @@ export default async function AtelierIntroSection() {
         {/* Encart inscriptions */}
         <Reveal delay={0.2} className="mt-10 md:mt-0 md:col-span-5">
           {rentree ? (
-            <div className="bg-yellow rounded-sm p-6 md:p-8">
+            <div className="bg-accent rounded-sm p-6 md:p-8">
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink mb-4">
                 Inscriptions ouvertes
               </p>
@@ -71,7 +71,7 @@ export default async function AtelierIntroSection() {
               </p>
             </div>
           ) : (
-            <div className="bg-yellow/40 rounded-sm p-6">
+            <div className="bg-accent/40 rounded-sm p-6">
               <p className="font-news italic text-[15px] text-ink/60">
                 Dates de rentrée à venir.
               </p>

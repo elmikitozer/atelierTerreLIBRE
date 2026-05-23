@@ -29,8 +29,8 @@ export default function PedagogieSection() {
         </div>
       </Reveal>
 
-      {/* Pull quote — fond yellow */}
-      <Reveal className="px-5 md:px-12 py-12 md:py-16 bg-yellow">
+      {/* Pull quote — fond accent */}
+      <Reveal className="px-5 md:px-12 py-12 md:py-16 bg-accent">
         <blockquote className="font-news italic text-[22px] md:text-[36px] leading-[1.25] text-ink max-w-3xl">
           « Priment l&apos;intuition et le contact avec la terre,
           qui libèrent toutes les énergies et les émotions. »

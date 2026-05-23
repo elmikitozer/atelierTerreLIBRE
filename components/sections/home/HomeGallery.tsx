@@ -91,7 +91,7 @@ export default async function HomeGallery() {
       <Reveal className="mt-8 hidden md:flex justify-center">
         <Link
           href="/l-atelier"
-          className="px-8 py-3.5 rounded-full bg-yellow text-ink font-manrope font-semibold text-[14px] hover:opacity-90 transition-opacity"
+          className="px-8 py-3.5 rounded-full bg-accent text-ink font-manrope font-semibold text-[14px] hover:opacity-90 transition-opacity"
         >
           Voir toutes les photos →
         </Link>

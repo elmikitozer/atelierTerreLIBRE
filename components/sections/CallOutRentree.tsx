@@ -7,7 +7,7 @@ export default async function CallOutRentree() {
 
   return (
     <Reveal>
-    <section className="bg-ink text-yellow px-5 md:px-12 py-8 md:py-10">
+    <section className="bg-ink text-accent px-5 md:px-12 py-8 md:py-10">
       <div className="max-w-screen-lg mx-auto md:flex md:items-center md:gap-12">
 
         <div className="shrink-0">
@@ -30,7 +30,7 @@ export default async function CallOutRentree() {
           )}
         </div>
 
-        <div className="mt-5 md:mt-0 md:border-l md:border-yellow/20 md:pl-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+        <div className="mt-5 md:mt-0 md:border-l md:border-accent/20 md:pl-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
           <p className="font-news italic text-[14px] md:text-[15px] leading-snug opacity-85">
             Adultes &amp; enfants — séances au trimestre ou à l&apos;année.
           </p>

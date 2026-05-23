@@ -92,7 +92,7 @@ export default async function AnniversairesSection() {
       <Reveal className="mt-8 md:grid md:grid-cols-12 md:gap-10 md:items-center">
         <div className="md:col-span-7">
           {tarifs ? (
-            <div className="bg-ink text-yellow rounded-sm p-5 md:p-6">
+            <div className="bg-ink text-accent rounded-sm p-5 md:p-6">
               <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
                 Tarifs
               </p>
@@ -116,7 +116,7 @@ export default async function AnniversairesSection() {
         <div className="md:col-span-5 mt-5 md:mt-0">
           <Link
             href="/contact"
-            className="block md:inline-block bg-ink text-yellow rounded-full text-center font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 px-8 hover:opacity-80 transition-opacity"
+            className="block md:inline-block bg-ink text-accent rounded-full text-center font-manrope font-semibold text-[13px] md:text-[14px] py-3.5 px-8 hover:opacity-80 transition-opacity"
           >
             Réserver un anniversaire →
           </Link>

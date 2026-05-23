@@ -2,7 +2,7 @@ type Props = {
   duration: string
   amount: number
   unit?: string
-  /** "light" = bg-cream (défaut), "dark" = bg-ink text-yellow */
+  /** "light" = bg-cream (défaut), "dark" = bg-ink text-accent */
   variant?: "light" | "dark"
 }
 
@@ -12,7 +12,7 @@ export default function PriceCard({ duration, amount, unit, variant = "light" }:
   return (
     <div
       className={`rounded-sm p-5 flex flex-col gap-1 ${
-        isDark ? "bg-ink text-yellow" : "bg-cream border border-ink/10"
+        isDark ? "bg-ink text-accent" : "bg-cream border border-ink/10"
       }`}
     >
       <p

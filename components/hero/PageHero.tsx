@@ -176,7 +176,7 @@ export default function PageHero({
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <section className="bg-yellow">
+    <section className="bg-accent">
 
       {/* Barre éditoriale */}
       <div className="px-5 md:px-12 pt-2 pb-2">
