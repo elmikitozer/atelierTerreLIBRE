@@ -2,16 +2,39 @@ import type { ReviewsData } from "@/lib/types/reviews"
 import ReviewsCarousel from "./ReviewsCarousel"
 import { Reveal } from "@/components/ui/Reveal"
 
+const PLACE_ID = "ChIJa77nG0xu5kcRPDnoVe019MI"
+
 async function getReviews(): Promise<ReviewsData | null> {
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY
+  if (!apiKey) return null
   try {
-    const baseUrl =
-      process.env.NEXT_PUBLIC_SITE_URL ||
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
-    const res = await fetch(`${baseUrl}/api/google-reviews`, {
-      next: { revalidate: 86400 },
-    })
+    const res = await fetch(
+      `https://places.googleapis.com/v1/places/${PLACE_ID}?languageCode=fr`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": apiKey,
+          "X-Goog-FieldMask": "displayName,rating,userRatingCount,reviews,googleMapsUri",
+        },
+        next: { revalidate: 86400 },
+      }
+    )
     if (!res.ok) return null
-    return res.json()
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data: any = await res.json()
+    const reviews = (data.reviews || []).map((r: any) => ({
+      author: r.authorAttribution?.displayName || "Anonyme",
+      authorPhoto: r.authorAttribution?.photoUri || null,
+      rating: r.rating,
+      text: r.text?.text || r.originalText?.text || "",
+      relativeTime: r.relativePublishTimeDescription || "",
+    }))
+    return {
+      rating: data.rating ?? null,
+      totalReviews: data.userRatingCount ?? 0,
+      reviews,
+      googleMapsUri: data.googleMapsUri ?? null,
+    }
   } catch {
     return null
   }
