@@ -43,7 +43,7 @@ const PILLARS: Pillar[] = [
 
 export default function HomePillars() {
   return (
-    <section className="bg-cream border-b border-ink/10 px-8 md:px-12 py-16 md:py-20">
+    <section id="pillars" className="bg-cream border-b border-ink/10 px-8 md:px-12 py-16 md:py-20">
 
       {/* En-tête */}
       <Reveal className="flex items-end justify-between mb-10">

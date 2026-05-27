@@ -261,6 +261,26 @@ export default function HomeHero() {
         </div>
       </div>
 
+      {/* ── Scroll indicator ────────────────────── */}
+      <motion.div
+        className="flex justify-center py-5 md:py-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+      >
+        <motion.button
+          onClick={() => document.getElementById("pillars")?.scrollIntoView({ behavior: "smooth" })}
+          aria-label="Défiler vers le bas"
+          className="text-ink/70 hover:text-ink transition-colors"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.button>
+      </motion.div>
+
     </section>
   )
 }

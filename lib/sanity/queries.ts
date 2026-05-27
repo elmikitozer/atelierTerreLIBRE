@@ -57,7 +57,9 @@ export type StageDimanche = {
 
 export async function getRentree(): Promise<Rentree | null> {
   return sanityClient.fetch<Rentree | null>(
-    `*[_id == "rentree"][0]{ dateAdultes, dateEnfants }`
+    `*[_id == "rentree"][0]{ dateAdultes, dateEnfants }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -68,7 +70,9 @@ export async function getCoursEnfants(): Promise<CoursEnfants | null> {
       schedule[]{ day, hours },
       prices[]{ duration, amount, unit },
       essaiPossible
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -78,7 +82,9 @@ export async function getCoursAdultes(): Promise<CoursAdultes | null> {
       schedule[]{ day, hours },
       prices[]{ duration, amount, unit },
       adulteSurCreneauEnfant
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -89,7 +95,9 @@ export async function getStagesVacances(): Promise<StageVacances[]> {
       tarifEnfantSemaine, tarifEnfantSeance,
       tarifAdulteSemaine, tarifAdulteSeance,
       order
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -97,7 +105,9 @@ export async function getStagesDimanche(): Promise<StageDimanche[]> {
   return sanityClient.fetch<StageDimanche[]>(
     `*[_type == "stageDimanche"] | order(order asc){
       _id, date, hours, tarifAdulte, tarifEnfant, order
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -122,7 +132,9 @@ export async function getGaleriePhotos(): Promise<GaleriePhoto[]> {
       image,
       caption,
       order
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
 
@@ -133,6 +145,8 @@ export async function getTarifsEvenements(): Promise<TarifsEvenements | null> {
       anniversaireSeuilEnfants,
       anniversaireEnfantSupp,
       teamBuildingMention
-    }`
+    }`,
+    {},
+    { next: { revalidate: 60 } }
   )
 }
