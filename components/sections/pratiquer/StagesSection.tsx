@@ -30,7 +30,7 @@ export default async function StagesSection() {
                 d&apos;une activité commune.
               </p>
               <p className="font-news text-[15px] md:text-[17px] leading-[1.55] mt-4 max-w-[640px] text-ink/85">
-                Ce stage de 4 heures (de 11h30 à 15h30) est encadré par Sylvia et Déborah.
+                Ce stage de 4 heures (de 11h30 à 15h30) est encadré par Déborah.
                 Déjeuner convivial au rendez-vous (chacun est invité à apporter un petit
                 quelque chose à grignoter).
               </p>
@@ -199,7 +199,7 @@ export default async function StagesSection() {
                 Prochaines dates
               </p>
               <p className="font-archivo-black text-[18px] md:text-[20px] mt-2 leading-tight">
-                Stages d&apos;été
+                Prochains stages
               </p>
               <div className="mt-4 space-y-3">
                 {vacances.map((s, i) => (

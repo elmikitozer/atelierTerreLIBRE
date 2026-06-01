@@ -31,8 +31,12 @@ export default async function AtelierIntroSection() {
           </p>
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
             Créé par Sylvia Katuszewski, il fut un des premiers ateliers de ce genre
-            à Paris. Sa fille, Déborah, l&apos;a rejoint il y a une quinzaine
+            à Paris. Sa fille, Déborah, l&apos;a rejoint il y a une vingtaine
             d&apos;années.
+          </p>
+          <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
+            Pour les plus fidèles, l&apos;aventure dure en réalité depuis près de 40 ans,
+            et l&apos;atelier existe depuis plus de 45 ans.
           </p>
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
             Ensemble, elles proposent une approche pédagogique particulière,

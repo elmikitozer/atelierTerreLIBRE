@@ -32,8 +32,7 @@ export default function PedagogieSection() {
       {/* Pull quote — fond accent */}
       <Reveal className="px-5 md:px-12 py-12 md:py-16 bg-accent">
         <blockquote className="font-news italic text-[22px] md:text-[36px] leading-[1.25] text-ink max-w-3xl">
-          « Priment l&apos;intuition et le contact avec la terre,
-          qui libèrent toutes les énergies et les émotions. »
+          « Puiser dans vos propres ressources plutôt que dans des recettes toutes faites. »
         </blockquote>
       </Reveal>
 
@@ -42,10 +41,6 @@ export default function PedagogieSection() {
         <div className="md:grid md:grid-cols-12 md:gap-16">
           <div className="md:col-span-7">
             <p className="font-news text-[16px] md:text-[18px] leading-[1.75] text-ink">
-              Puiser dans vos propres ressources plutôt que dans des recettes
-              toutes faites.
-            </p>
-            <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-5 text-ink">
               C&apos;est une rencontre avec soi-même : développer la confiance en
               soi, prendre le temps de trouver ses propres réponses, être à
               l&apos;écoute de l&apos;objet qui se crée et de soi-même.
