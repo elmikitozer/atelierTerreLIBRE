@@ -35,14 +35,22 @@ export async function GET() {
 
     const data = await response.json()
 
+    const EXCLUDED_AUTHORS = ["mélanie", "melanie"]
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const reviews = (data.reviews || []).map((r: any) => ({
-      author: r.authorAttribution?.displayName || "Anonyme",
-      authorPhoto: r.authorAttribution?.photoUri || null,
-      rating: r.rating,
-      text: r.text?.text || r.originalText?.text || "",
-      relativeTime: r.relativePublishTimeDescription || "",
-    }))
+    const reviews = (data.reviews || [])
+      .map((r: any) => ({
+        author: r.authorAttribution?.displayName || "Anonyme",
+        authorPhoto: r.authorAttribution?.photoUri || null,
+        rating: r.rating,
+        text: r.text?.text || r.originalText?.text || "",
+        relativeTime: r.relativePublishTimeDescription || "",
+      }))
+      .filter((r: { author: string }) =>
+        !EXCLUDED_AUTHORS.some((name) =>
+          r.author.toLowerCase().includes(name)
+        )
+      )
 
     return NextResponse.json({
       rating: data.rating ?? null,
