@@ -8,7 +8,7 @@ const PROGRAMME = [
     step: "01",
     duration: "1h",
     title: "Modelage avec les enfants",
-    desc: "Sous la conduite de Sylvia et Déborah, autour de la grande table.",
+    desc: "Sous la conduite de Déborah, autour de la grande table.",
   },
   {
     step: "02",
@@ -20,7 +20,7 @@ const PROGRAMME = [
     step: "03",
     duration: "30 min",
     title: "Goûter & cadeaux",
-    desc: "Avec les parents — c'est vous qui gérez cette partie.",
+    desc: "Les parents prennent le relais pour le goûter et l’ouverture des cadeaux. Cette partie n’est pas encadrée par l’atelier.",
   },
 ]
 

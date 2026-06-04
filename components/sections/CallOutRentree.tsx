@@ -32,7 +32,7 @@ export default async function CallOutRentree() {
 
         <div className="mt-5 md:mt-0 md:border-l md:border-accent/20 md:pl-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
           <p className="font-news italic text-[14px] md:text-[15px] leading-snug opacity-85">
-            Adultes &amp; enfants — séances au trimestre ou à l&apos;année.
+            Adultes &amp; enfants — séances au trimestre <br/>( 11 séances par trimestre )
           </p>
           <Link
             href="/contact"
