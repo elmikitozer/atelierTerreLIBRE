@@ -121,7 +121,7 @@ export default function HomeHero() {
             </p>
             <p className="font-news text-[15px] leading-[1.55] mt-3 text-ink/80">
               Créé par Sylvia Katuszewski, rejointe par sa fille Déborah il y
-              a une quinzaine d&apos;années.
+              a une vingtaine d&apos;années.
             </p>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function HomeHero() {
             </p>
             <p className="font-news text-[14px] leading-[1.55] mt-2 text-ink/80">
               Créé par Sylvia Katuszewski, rejointe par sa fille Déborah il y
-              a une quinzaine d&apos;années.
+              a une vingtaine d&apos;années.
             </p>
           </div>
         </div>

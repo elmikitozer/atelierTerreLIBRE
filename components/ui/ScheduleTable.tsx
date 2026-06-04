@@ -18,7 +18,7 @@ export default function ScheduleTable({ slots }: Props) {
           </div>
           {/* Horaires */}
           <div className="font-mono text-[12px] md:text-[13px] tracking-[0.04em] text-ink/80 mt-0.5 md:mt-0 flex-1">
-            {slot.hours.join("  ·  ")}
+            {(slot.hours ?? []).join("  ·  ")}
           </div>
         </div>
       ))}

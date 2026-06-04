@@ -1,12 +1,11 @@
-import { getRentree } from "@/lib/sanity/queries"
-import { Reveal } from "@/components/ui/Reveal"
+import { getRentree } from '@/lib/sanity/queries';
+import { Reveal } from '@/components/ui/Reveal';
 
 export default async function AtelierIntroSection() {
-  const rentree = await getRentree()
+  const rentree = await getRentree();
 
   return (
     <section className="px-5 md:px-12 py-14 md:py-20 bg-cream border-b border-ink/10">
-
       {/* Citation chapeau */}
       <Reveal className="relative mb-14 md:mb-20 max-w-3xl">
         <span
@@ -16,32 +15,28 @@ export default async function AtelierIntroSection() {
           «
         </span>
         <blockquote className="relative font-news italic text-[24px] md:text-[34px] leading-[1.25] text-ink">
-          Libérez votre créativité, laissez la terre parler.
+          Puisez dans vos propres ressources plutôt que dans des recettes toutes faites.
         </blockquote>
       </Reveal>
 
       <div className="md:grid md:grid-cols-12 md:gap-16">
-
         {/* Storytelling */}
         <Reveal delay={0.1} className="md:col-span-7">
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] text-ink [&:first-letter]:float-left [&:first-letter]:font-archivo-black [&:first-letter]:text-[72px] [&:first-letter]:leading-[0.8] [&:first-letter]:mr-3 [&:first-letter]:mt-1">
-            Terre Libre, atelier de modelage et de céramique « de mère en fille »,
-            accueille son public, enfants et adultes, depuis 40 ans dans le
-            9<sup>e</sup> arrondissement de Paris.
+            Terre Libre, atelier de modelage et de céramique « de mère en fille », accueille son
+            public, enfants et adultes, depuis 40 ans dans le 9<sup>e</sup> arrondissement de Paris.
           </p>
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
-            Créé par Sylvia Katuszewski, il fut un des premiers ateliers de ce genre
-            à Paris. Sa fille, Déborah, l&apos;a rejoint il y a une vingtaine
-            d&apos;années.
+            Créé par Sylvia Katuszewski, il fut un des premiers ateliers de ce genre à Paris. Sa
+            fille, Déborah, l&apos;a rejoint il y a une vingtaine d&apos;années.
           </p>
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
-            Pour les plus fidèles, l&apos;aventure dure en réalité depuis près de 40 ans,
-            et l&apos;atelier existe depuis plus de 45 ans.
+            Pour les plus fidèles, l&apos;aventure dure en réalité depuis près de 40 ans, et
+            l&apos;atelier existe depuis plus de 45 ans.
           </p>
           <p className="font-news text-[16px] md:text-[18px] leading-[1.75] mt-6 text-ink">
-            Ensemble, elles proposent une approche pédagogique particulière,
-            éprouvée par de longues années de pratique et inspirée par les travaux
-            du chercheur Arno Stern.
+            Ensemble, elles proposent une approche pédagogique particulière, éprouvée par de longues
+            années de pratique et inspirée par les travaux du chercheur Arno Stern.
           </p>
         </Reveal>
 
@@ -76,14 +71,11 @@ export default async function AtelierIntroSection() {
             </div>
           ) : (
             <div className="bg-accent/40 rounded-sm p-6">
-              <p className="font-news italic text-[15px] text-ink/60">
-                Dates de rentrée à venir.
-              </p>
+              <p className="font-news italic text-[15px] text-ink/60">Dates de rentrée à venir.</p>
             </div>
           )}
         </Reveal>
-
       </div>
     </section>
-  )
+  );
 }
