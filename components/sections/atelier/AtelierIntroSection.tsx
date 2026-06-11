@@ -15,7 +15,7 @@ export default async function AtelierIntroSection() {
           «
         </span>
         <blockquote className="relative font-news italic text-[24px] md:text-[34px] leading-[1.25] text-ink">
-          Puisez dans vos propres ressources plutôt que dans des recettes toutes faites.
+          Puisez dans vos propres ressources plutôt que dans des formules toutes faites.
         </blockquote>
       </Reveal>
 

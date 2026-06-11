@@ -3,6 +3,7 @@ import ReviewsCarousel from "./ReviewsCarousel"
 import { Reveal } from "@/components/ui/Reveal"
 
 const PLACE_ID = "ChIJa77nG0xu5kcRPDnoVe019MI"
+const EXCLUDED_KEYWORDS = ["mélanie", "melanie"]
 
 async function getReviews(): Promise<ReviewsData | null> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY
@@ -22,13 +23,17 @@ async function getReviews(): Promise<ReviewsData | null> {
     if (!res.ok) return null
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await res.json()
-    const reviews = (data.reviews || []).map((r: any) => ({
-      author: r.authorAttribution?.displayName || "Anonyme",
-      authorPhoto: r.authorAttribution?.photoUri || null,
-      rating: r.rating,
-      text: r.text?.text || r.originalText?.text || "",
-      relativeTime: r.relativePublishTimeDescription || "",
-    }))
+    const reviews = (data.reviews || [])
+      .map((r: any) => ({
+        author: r.authorAttribution?.displayName || "Anonyme",
+        authorPhoto: r.authorAttribution?.photoUri || null,
+        rating: r.rating,
+        text: r.text?.text || r.originalText?.text || "",
+        relativeTime: r.relativePublishTimeDescription || "",
+      }))
+      .filter((r: { text: string }) =>
+        !EXCLUDED_KEYWORDS.some((kw) => r.text.toLowerCase().includes(kw))
+      )
     return {
       rating: data.rating ?? null,
       totalReviews: data.userRatingCount ?? 0,

@@ -32,7 +32,7 @@ export default function PedagogieSection() {
       {/* Pull quote — fond accent */}
       <Reveal className="px-5 md:px-12 py-12 md:py-16 bg-accent">
         <blockquote className="font-news italic text-[22px] md:text-[36px] leading-[1.25] text-ink max-w-3xl">
-          « Puiser dans vos propres ressources plutôt que dans des recettes toutes faites. »
+          « Chaque élève est libre de créer selon ses envies.  Aucun thème n&apos;est imposé.»
         </blockquote>
       </Reveal>
 
@@ -45,7 +45,7 @@ export default function PedagogieSection() {
               soi, prendre le temps de trouver ses propres réponses, être à
               l&apos;écoute de l&apos;objet qui se crée et de soi-même.
             </p>
-            <p className="font-news italic text-[15px] md:text-[17px] mt-8 text-ink/60">
+            <p className="font-news italic text-[20px] md:text-[24px] mt-8 text-ink/60">
               « Laisser aller la création là où elle doit aller. »
             </p>
           </div>
