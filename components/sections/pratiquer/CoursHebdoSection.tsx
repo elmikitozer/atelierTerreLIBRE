@@ -50,7 +50,7 @@ export default async function CoursHebdoSection() {
 
           <div className="mb-7">
             <h2 className="font-archivo-black text-[28px] md:text-[32px] leading-[0.95] text-ink">
-              Cours <span className="italic">enfants.</span>
+              Cours <span className="italic">enfants / ado.</span>
             </h2>
             {enfants && (
               <p className="font-news text-[14px] md:text-[15px] mt-2 text-ink/75">
