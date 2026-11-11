@@ -104,16 +104,6 @@ export default function Footer() {
                 <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
               </svg>
             </a>
-            {/* TODO: ajouter la vraie URL Facebook */}
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="w-8 h-8 rounded-full bg-ink text-accent grid place-items-center hover:opacity-80 transition-opacity"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>

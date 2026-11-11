@@ -109,14 +109,6 @@ export default function ContactInfoSection() {
               >
                 Instagram →
               </a>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-news text-[15px] text-ink hover:opacity-60 transition-opacity"
-              >
-                Facebook →
-              </a>
             </div>
           </div>
 
