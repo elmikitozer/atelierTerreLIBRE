@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import LocalImage from "@/components/ui/LocalImage"
 import { Reveal, RevealList, RevealItem } from "@/components/ui/Reveal"
 
 type Pillar = {
@@ -64,7 +64,7 @@ export default function HomePillars() {
               className="h-full bg-white border border-ink/10 rounded-sm flex flex-col hover:bg-accent/30 transition-colors group overflow-hidden"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Image
+                <LocalImage
                   src={image}
                   fill
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
@@ -97,7 +97,7 @@ export default function HomePillars() {
               className="bg-white border border-ink/10 rounded-sm flex items-center gap-4 hover:bg-accent/30 transition-colors overflow-hidden"
             >
               <div className="relative w-20 h-20 shrink-0 overflow-hidden">
-                <Image
+                <LocalImage
                   src={image}
                   fill
                   className="object-cover"

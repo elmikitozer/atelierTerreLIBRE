@@ -1,4 +1,4 @@
-import Image from "next/image"
+import LocalImage from "./LocalImage"
 
 type Props = {
   src: string
@@ -17,7 +17,7 @@ export default function SectionPhoto({
 }: Props) {
   return (
     <div className={`relative aspect-[3/2] w-full rounded-sm overflow-hidden ${className}`}>
-      <Image
+      <LocalImage
         src={src}
         alt={alt}
         fill

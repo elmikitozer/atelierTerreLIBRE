@@ -1,4 +1,4 @@
-import Image from "next/image";
+import LocalImage from "./LocalImage";
 
 type Props = {
   className?: string;
@@ -18,7 +18,7 @@ export default function PhotoFondatrices({
   alt = "Sylvia et Déborah Katuszewski, fondatrices de l'Atelier Terre Libre",
 }: Props) {
   return (
-    <Image
+    <LocalImage
       src="/SylviaDeborah.jpg"
       alt={alt}
       fill={fill}
