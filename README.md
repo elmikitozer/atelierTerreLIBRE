@@ -24,6 +24,10 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 `npm run build:images` régénère les variantes WebP de `public/optimized/` à partir des photos listées dans `scripts/build-images.ts` ; à relancer quand une photo de `/public` change ou s'ajoute.
 
+## Icônes
+
+Les SVG de `public/favicons/` sont vectorisés à partir d'Archivo Black (SIL OFL 1.1) ; `npm run build:favicons` régénère les PNG et `favicon.ico`.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

@@ -1,14 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Texte vectorisé depuis Archivo Black (SIL OFL 1.1) : rendu identique sans la police. -->
+  <title>tL</title>
   <circle cx="16" cy="16" r="16" fill="#f1dd6a"/>
-  <text
-    x="50%"
-    y="54%"
-    font-family="'Archivo Black', 'Arial Black', sans-serif"
-    font-weight="900"
-    font-style="italic"
-    font-size="17"
-    fill="#1a1814"
-    text-anchor="middle"
-    dominant-baseline="middle"
-  >tL</text>
+  <path fill="#1a1814" d="M15.8 12.79L15.23 15.09L13.33 15.09L12.47 18.5Q12.32 19.12 12.45 19.4Q12.59 19.68 13.13 19.68L14.08 19.68L13.59 21.67Q13.14 21.8 12.48 21.89Q11.81 21.97 11.33 21.97Q9.84 21.97 9.17 21.43Q8.49 20.88 8.82 19.58L9.94 15.09L8.69 15.09L9.26 12.79L10.65 12.79L12.06 10.07L14.58 10.07L13.9 12.79ZM18.29 10.07L22.04 10.07L19.87 18.78L25.87 18.78L25.12 21.77L15.36 21.77Z"/>
 </svg>
