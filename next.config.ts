@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // /index servait une copie de l'accueil en 200.
+      { source: "/index", destination: "/", permanent: true },
+    ]
+  },
   images: {
     // Filet de sécurité : aucune image ne doit passer par l'optimiseur Vercel
     // (loaders dédiés), mais si une y revient, elle génère peu de variantes.
