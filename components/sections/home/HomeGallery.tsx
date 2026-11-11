@@ -1,8 +1,8 @@
 import Link from "next/link"
-import Image from "next/image"
 import { getGaleriePhotos } from "@/lib/sanity/queries"
 import { urlFor } from "@/lib/sanity/image"
 import { Reveal, RevealList, RevealItem } from "@/components/ui/Reveal"
+import SanityImage from "@/components/ui/SanityImage"
 
 const DESKTOP_SPANS = [
   "col-span-2 row-span-2",
@@ -46,8 +46,8 @@ export default async function HomeGallery() {
                 key={photo._id}
                 className={`relative rounded-sm overflow-hidden ${DESKTOP_SPANS[i]}`}
               >
-                <Image
-                  src={urlFor(photo.image).width(1200).quality(85).url()}
+                <SanityImage
+                  src={urlFor(photo.image).url()}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1280px) 33vw, 25vw"
@@ -64,8 +64,8 @@ export default async function HomeGallery() {
                 key={photo._id}
                 className="relative aspect-square rounded-sm overflow-hidden"
               >
-                <Image
-                  src={urlFor(photo.image).width(600).quality(80).url()}
+                <SanityImage
+                  src={urlFor(photo.image).url()}
                   fill
                   className="object-cover"
                   sizes="50vw"

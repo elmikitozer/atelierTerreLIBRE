@@ -5,6 +5,7 @@ import Image from "next/image"
 import Lightbox from "yet-another-react-lightbox"
 import "yet-another-react-lightbox/styles.css"
 import { urlFor } from "@/lib/sanity/image"
+import sanityImageLoader from "@/lib/sanity/imageLoader"
 import type { GaleriePhoto } from "@/lib/sanity/queries"
 import { Reveal } from "@/components/ui/Reveal"
 
@@ -52,7 +53,8 @@ export default function GalerieGrid({ photos }: Props) {
               aria-label={`Voir la photo ${i + 1} en grand`}
             >
               <Image
-                src={urlFor(photo.image).width(1600).quality(90).url()}
+                loader={sanityImageLoader}
+                src={urlFor(photo.image).url()}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
@@ -77,7 +79,8 @@ export default function GalerieGrid({ photos }: Props) {
               aria-label={`Voir la photo ${i + 1} en grand`}
             >
               <Image
-                src={urlFor(photo.image).width(800).quality(85).url()}
+                loader={sanityImageLoader}
+                src={urlFor(photo.image).url()}
                 fill
                 className="object-cover"
                 sizes="50vw"
