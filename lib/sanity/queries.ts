@@ -150,3 +150,27 @@ export async function getTarifsEvenements(): Promise<TarifsEvenements | null> {
     { next: { revalidate: 60 } }
   )
 }
+
+// ─── Sitemap ─────────────────────────────────────────────
+
+// Date de dernière modification (_updatedAt le plus récent) des documents
+// dont dépend chaque page. null si aucun document.
+export type PagesLastModified = {
+  home: string | null
+  pratiquer: string | null
+  evenements: string | null
+  atelier: string | null
+}
+
+export async function getPagesLastModified(): Promise<PagesLastModified> {
+  return sanityClient.fetch<PagesLastModified>(
+    `{
+      "home": *[_type == "galerie"] | order(_updatedAt desc)[0]._updatedAt,
+      "pratiquer": *[_type in ["rentree", "coursEnfants", "coursAdultes", "stageVacances", "stageDimanche"]] | order(_updatedAt desc)[0]._updatedAt,
+      "evenements": *[_type == "tarifsEvenements"] | order(_updatedAt desc)[0]._updatedAt,
+      "atelier": *[_type in ["rentree", "galerie"]] | order(_updatedAt desc)[0]._updatedAt
+    }`,
+    {},
+    { next: { revalidate: 3600 } }
+  )
+}
