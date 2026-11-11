@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/hero/PageHero';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Contact — Nous écrire, nous appeler',
@@ -14,6 +15,7 @@ import FormulaireSection from '@/components/sections/contact/FormulaireSection';
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbSchema name="Contact" path="/contact" />
       <PageHero
         pageName="contact"
         supraLeft="NOUS ÉCRIRE · VENIR NOUS VOIR · 75009 PARIS"

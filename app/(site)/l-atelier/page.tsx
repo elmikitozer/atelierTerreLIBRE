@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/hero/PageHero';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: "L'atelier — Notre histoire",
@@ -17,6 +18,7 @@ export const revalidate = 60;
 export default function AtelierPage() {
   return (
     <>
+      <BreadcrumbSchema name="L'atelier" path="/l-atelier" />
       <PageHero
         pageName="l'atelier"
         supraLeft="DEPUIS 1985 · DE MÈRE EN FILLE"

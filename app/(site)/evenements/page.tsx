@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/hero/PageHero';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Événements — Anniversaires, team building, privatisation',
@@ -16,6 +17,7 @@ export const revalidate = 60;
 export default function EvenementsPage() {
   return (
     <>
+      <BreadcrumbSchema name="Évènements" path="/evenements" />
       <PageHero
         pageName="évènements"
         supraLeft="ANNIVERSAIRES · TEAM BUILDING · PRIVATISATIONS"

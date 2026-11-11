@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import PageHero from "@/components/hero/PageHero"
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema"
 
 export const metadata: Metadata = {
   title: "Pratiquer — Cours et stages",
@@ -16,6 +17,7 @@ export const revalidate = 60
 export default function PratiquerPage() {
   return (
     <>
+      <BreadcrumbSchema name="Pratiquer" path="/pratiquer" />
       <PageHero
         pageName="pratiquer"
         supraLeft="COURS HEBDOMADAIRES & STAGES"

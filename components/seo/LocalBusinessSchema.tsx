@@ -40,10 +40,7 @@ export default function LocalBusinessSchema() {
         closes: "15:30",
       },
     ],
-    sameAs: [
-      "https://www.instagram.com/atelier_terre_libre",
-      "https://www.facebook.com/atelier.terre.libre",
-    ],
+    sameAs: ["https://www.instagram.com/atelierterrelibre/"],
     areaServed: {
       "@type": "City",
       name: "Paris",

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
+import WebSiteSchema from "@/components/seo/WebSiteSchema"
 import HomeHero from "@/components/sections/home/HomeHero"
 import HomePillars from "@/components/sections/home/HomePillars"
 import HomeGallery from "@/components/sections/home/HomeGallery"
@@ -14,6 +15,7 @@ import HomeReviews from "@/components/sections/home/HomeReviews"
 export default function HomePage() {
   return (
     <>
+      <WebSiteSchema />
       <HomeHero />
       <HomePillars />
       <HomeGallery />
