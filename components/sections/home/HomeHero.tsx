@@ -97,7 +97,7 @@ export default function HomeHero() {
         <div className="col-span-5 bg-cream px-8 pt-12 pb-14 flex flex-col">
           <div className="relative">
             <div className="relative h-[500px] rounded-sm overflow-hidden">
-              <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
+              <PhotoFondatrices loading="eager" fetchPriority="high" sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
             <div className="absolute -bottom-3 left-3 bg-ink text-accent px-3 py-2 rounded-sm">
               <p className="font-mono text-[9px] tracking-[0.22em] uppercase opacity-80">
@@ -231,7 +231,7 @@ export default function HomeHero() {
         <div className="bg-cream px-5 pt-6 pb-10">
           <div className="relative">
             <div className="relative h-[360px] rounded-sm overflow-hidden">
-              <PhotoFondatrices priority sizes="(max-width: 768px) 100vw, 42vw" />
+              <PhotoFondatrices loading="eager" fetchPriority="high" sizes="(max-width: 768px) 100vw, 42vw" />
             </div>
             <div className="absolute -bottom-3 left-3 bg-ink text-accent px-3 py-2 rounded-sm">
               <p className="font-mono text-[8px] tracking-[0.22em] uppercase opacity-80">

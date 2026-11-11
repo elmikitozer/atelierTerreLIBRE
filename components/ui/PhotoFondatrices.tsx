@@ -2,7 +2,8 @@ import LocalImage from "./LocalImage";
 
 type Props = {
   className?: string;
-  priority?: boolean;
+  loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
   sizes?: string;
   fill?: boolean;
   objectPosition?: string;
@@ -11,7 +12,8 @@ type Props = {
 
 export default function PhotoFondatrices({
   className = "",
-  priority = false,
+  loading,
+  fetchPriority,
   sizes = "100vw",
   fill = true,
   objectPosition = "center 5%",
@@ -25,7 +27,8 @@ export default function PhotoFondatrices({
       className={`object-cover ${className}`}
       style={{ objectPosition }}
       sizes={sizes}
-      priority={priority}
+      loading={loading}
+      fetchPriority={fetchPriority}
     />
   );
 }
