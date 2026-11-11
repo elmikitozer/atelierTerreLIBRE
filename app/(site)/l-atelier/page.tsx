@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/hero/PageHero';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "L'atelier — Notre histoire",
   description:
     "Atelier de poterie et céramique de mère en fille à Paris 9e depuis 40 ans. Notre histoire, nos valeurs, Sylvia & Déborah.",
-  alternates: { canonical: '/l-atelier' },
-};
+  path: '/l-atelier',
+});
 import AtelierIntroSection from '@/components/sections/atelier/AtelierIntroSection';
 import PedagogieSection from '@/components/sections/atelier/PedagogieSection';
 import FideliteSection from '@/components/sections/atelier/FideliteSection';

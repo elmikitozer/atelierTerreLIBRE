@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/hero/PageHero';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Contact — Nous écrire, nous appeler',
   description:
     '17 rue de Vintimille, 75009 Paris. Métro Place de Clichy. Cours de poterie et céramique : nous écrire, nous appeler, venir.',
-  alternates: { canonical: '/contact' },
-};
+  path: '/contact',
+});
 import ContactInfoSection from '@/components/sections/contact/ContactInfoSection';
 import CarteSection from '@/components/sections/contact/CarteSection';
 import FormulaireSection from '@/components/sections/contact/FormulaireSection';

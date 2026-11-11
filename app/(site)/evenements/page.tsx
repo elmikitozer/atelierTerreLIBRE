@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import PageHero from '@/components/hero/PageHero';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Anniversaire poterie et team building',
   description:
     "Anniversaires d'enfants en céramique, team building et stages de poterie en famille à Paris 9e. Une parenthèse créative autour de la terre.",
-  alternates: { canonical: '/evenements' },
-};
+  path: '/evenements',
+});
 import AnniversairesSection from '@/components/sections/evenements/AnniversairesSection';
 import TeamBuildingSection from '@/components/sections/evenements/TeamBuildingSection';
 import PrivatisationSection from '@/components/sections/evenements/PrivatisationSection';

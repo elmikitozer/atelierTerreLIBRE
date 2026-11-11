@@ -1,13 +1,13 @@
-import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import PageHero from "@/components/hero/PageHero"
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema"
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Pratiquer — Cours et stages",
   description:
     "Cours hebdomadaires de poterie et céramique et stages à Paris 9e. Pour adultes et enfants dès 4 ans. Modelage, tournage, émaillage.",
-  alternates: { canonical: "/pratiquer" },
-}
+  path: "/pratiquer",
+})
 import CallOutRentree from "@/components/sections/CallOutRentree"
 import CoursHebdoSection from "@/components/sections/pratiquer/CoursHebdoSection"
 import StagesSection from "@/components/sections/pratiquer/StagesSection"

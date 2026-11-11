@@ -1,14 +1,13 @@
-import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  // absolute : le gabarit "%s — Atelier Terre Libre" ne s'applique pas.
-  title: {
-    absolute: "Atelier Terre Libre — Cours de poterie et céramique à Paris 9e",
-  },
+export const metadata = pageMetadata({
+  // absoluteTitle : le gabarit "%s — Atelier Terre Libre" ne s'applique pas.
+  title: "Atelier Terre Libre — Cours de poterie et céramique à Paris 9e",
+  absoluteTitle: true,
   description:
     "Atelier de modelage et céramique à Paris 9e depuis 40 ans. Cours de modelage et céramique pour adultes et enfants, de mère en fille.",
-  alternates: { canonical: "/" },
-}
+  path: "/",
+})
 
 import WebSiteSchema from "@/components/seo/WebSiteSchema"
 import HomeHero from "@/components/sections/home/HomeHero"

@@ -9,6 +9,7 @@ import {
 import "./globals.css"
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema"
 import { SITE_URL } from "@/lib/site"
+import { OG_BASE, TWITTER_BASE } from "@/lib/seo"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -51,43 +52,23 @@ export const metadata: Metadata = {
   },
   description:
     "Atelier de modelage et céramique à Paris 9e depuis 40 ans. Cours adultes et enfants. De mère en fille.",
-  keywords: [
-    "atelier poterie Paris",
-    "céramique Paris 9",
-    "cours modelage enfants",
-    "cours poterie adultes",
-    "atelier terre",
-    "anniversaire poterie enfant Paris",
-    "team building céramique",
-    "Sylvia Katuszewski",
-    "Déborah Katuszewski",
-  ],
   authors: [{ name: "Atelier Terre Libre" }],
   creator: "Atelier Terre Libre",
   publisher: "Atelier Terre Libre",
+  // Repli pour les pages sans métadonnées propres (404) ; les pages du site
+  // déclarent les leurs via pageMetadata (lib/seo.ts).
   openGraph: {
-    type: "website",
-    locale: "fr_FR",
+    ...OG_BASE,
     url: SITE_URL,
-    siteName: "Atelier Terre Libre",
     title: "Atelier Terre Libre",
     description:
       "Atelier de modelage et céramique à Paris 9e depuis 40 ans. Cours adultes et enfants. De mère en fille.",
-    images: [
-      {
-        url: "/SylviaDeborah.jpg",
-        width: 1200,
-        height: 800,
-        alt: "Sylvia et Déborah, fondatrices de l'Atelier Terre Libre",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    ...TWITTER_BASE,
     title: "Atelier Terre Libre",
     description:
       "Atelier de modelage et céramique à Paris 9e depuis 40 ans.",
-    images: ["/SylviaDeborah.jpg"],
   },
   robots: {
     index: true,
