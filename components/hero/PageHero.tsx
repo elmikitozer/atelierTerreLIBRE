@@ -40,19 +40,20 @@ export default function PageHero({
   const navigating = useRef(false)
 
   const fsVar      = compact ? "var(--fs-page-events)" : "var(--fs-page-name)"
+  // -1 quand la page n'est pas dans le menu (404) : le titre reste en tête
+  // et les quatre liens se déploient en dessous.
   const currentIdx = NAV_LINKS.findIndex(l => l.href === pathname)
-  const safeIdx    = currentIdx >= 0 ? currentIdx : 0
   const isPromoting = promotedIdx !== null
 
   // ── Helpers ──────────────────────────────────────────────────────────────
 
   function itemVisible(navIdx: number): boolean {
     if (isPromoting) return navIdx === promotedIdx
-    return isOpen || navIdx === safeIdx
+    return isOpen || navIdx === currentIdx
   }
 
   function staggerDelay(navIdx: number): number {
-    const refIdx = isPromoting ? promotedIdx! : safeIdx
+    const refIdx = isPromoting ? promotedIdx! : currentIdx
     const dist   = Math.abs(navIdx - refIdx)
     const opening = isOpen && !isPromoting
     return opening
@@ -86,7 +87,7 @@ export default function PageHero({
     e.preventDefault()
     if (navigating.current) return
     // Clicking current page: just close
-    if (navIdx === safeIdx) { close(); return }
+    if (navIdx === currentIdx) { close(); return }
     navigating.current = true
     setPromotedIdx(navIdx)
     // close() avant push : isPromoting reste true donc la promotion
@@ -139,20 +140,20 @@ export default function PageHero({
 
   // Renders the current page title (always visible unless being outpromoted)
   function renderCurrentTitle() {
-    const visible   = itemVisible(safeIdx)
+    const visible   = itemVisible(currentIdx)
     const isOpening = isOpen && !isPromoting
     const h1Ease    = isOpening ? EASE_OUT.join(",") : EASE_IN.join(",")
-    // Delay h1 shrink by 70ms when there are items above (safeIdx > 0) so the
+    // Delay h1 shrink by 70ms when there are items above (currentIdx > 0) so the
     // first item above starts appearing before the title begins to resize —
     // prevents "évènements." from jumping between 2 lines and 1 line mid-animation.
-    const h1Delay   = (isOpening && safeIdx > 0) ? "70ms" : "0ms"
+    const h1Delay   = (isOpening && currentIdx > 0) ? "70ms" : "0ms"
 
     return (
       <motion.div
         key="current"
         initial={false}
         animate={{ height: visible ? "auto" : 0 }}
-        transition={heightTrans(safeIdx)}
+        transition={heightTrans(currentIdx)}
         style={{ overflow: "hidden" }}
       >
         <div className="py-[0.3em]">
@@ -208,12 +209,12 @@ export default function PageHero({
 
         {/* Mobile : liste ordonnée — items-above poussent le titre vers le bas */}
         <div className="md:hidden flex flex-col">
-          {NAV_LINKS.slice(0, safeIdx).map((link, si) =>
+          {NAV_LINKS.slice(0, Math.max(currentIdx, 0)).map((link, si) =>
             renderOtherItem(link, si)
           )}
           {renderCurrentTitle()}
-          {NAV_LINKS.slice(safeIdx + 1).map((link, si) =>
-            renderOtherItem(link, safeIdx + 1 + si)
+          {NAV_LINKS.slice(currentIdx + 1).map((link, si) =>
+            renderOtherItem(link, currentIdx + 1 + si)
           )}
         </div>
 
