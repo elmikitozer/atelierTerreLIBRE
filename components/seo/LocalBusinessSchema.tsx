@@ -1,16 +1,18 @@
+import { SITE_URL } from "@/lib/site"
+
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://atelier-terre-libre.fr/#business",
+    "@id": `${SITE_URL}/#business`,
     name: "Atelier Terre Libre",
     description:
       "Atelier de modelage et céramique à Paris 9e depuis 40 ans. Cours adultes et enfants, stages, anniversaires, team building. De mère en fille.",
-    url: "https://atelier-terre-libre.fr",
+    url: SITE_URL,
     telephone: "+33618938588",
     email: "bonjour.atelierterrelibre@gmail.com",
-    image: "https://atelier-terre-libre.fr/SylviaDeborah.jpg",
-    logo: "https://atelier-terre-libre.fr/favicons/apple-touch-icon.png",
+    image: `${SITE_URL}/SylviaDeborah.jpg`,
+    logo: `${SITE_URL}/favicons/apple-touch-icon.png`,
     priceRange: "€€",
     address: {
       "@type": "PostalAddress",

@@ -8,6 +8,7 @@ import {
 } from "next/font/google"
 import "./globals.css"
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema"
+import { SITE_URL } from "@/lib/site"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -43,7 +44,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://atelier-terre-libre.fr"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Atelier Terre Libre",
     template: "%s — Atelier Terre Libre",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://atelier-terre-libre.fr",
+    url: SITE_URL,
     siteName: "Atelier Terre Libre",
     title: "Atelier Terre Libre",
     description:
@@ -97,7 +98,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://atelier-terre-libre.fr",
+    canonical: SITE_URL,
   },
   icons: {
     icon: [
