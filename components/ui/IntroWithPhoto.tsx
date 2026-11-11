@@ -7,6 +7,8 @@ type Props = {
   objectPosition?: string
   caption?: string
   hidePhotoOnMobile?: boolean
+  loading?: "eager" | "lazy"
+  fetchPriority?: "high" | "low" | "auto"
   className?: string
   children: React.ReactNode
 }
@@ -18,6 +20,8 @@ export default function IntroWithPhoto({
   objectPosition,
   caption,
   hidePhotoOnMobile = false,
+  loading,
+  fetchPriority,
   className = "",
   children,
 }: Props) {
@@ -29,7 +33,14 @@ export default function IntroWithPhoto({
     <div className={`md:grid md:grid-cols-12 md:gap-10 ${className}`}>
       <div className="md:col-span-7">{children}</div>
       <div className={photoColClass}>
-        <SectionPhoto src={src} alt={alt} sizes={sizes} objectPosition={objectPosition} />
+        <SectionPhoto
+          src={src}
+          alt={alt}
+          sizes={sizes}
+          objectPosition={objectPosition}
+          loading={loading}
+          fetchPriority={fetchPriority}
+        />
         {caption && (
           <p className="font-mono text-[9px] tracking-[0.18em] uppercase text-mute mt-2">
             {caption}

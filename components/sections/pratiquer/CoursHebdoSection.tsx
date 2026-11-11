@@ -18,9 +18,11 @@ export default async function CoursHebdoSection() {
             src="/enfants/_DSC0885.jpg"
             alt="Atelier Terre Libre — cours hebdomadaires"
             objectPosition="center 25%"
-            sizes="(max-width: 768px) 0px, 42vw"
+            sizes="(max-width: 767px) 0px, 42vw"
             caption="↑ Autour de la grande table"
             hidePhotoOnMobile
+            loading="eager"
+            fetchPriority="high"
           >
             <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-5">
               Cours hebdomadaires
@@ -64,7 +66,7 @@ export default async function CoursHebdoSection() {
               <SectionPhoto
                 src="/enfants/_DSC0896.jpg"
                 alt="Atelier Terre Libre — cours enfants"
-                sizes="(max-width: 768px) 0px, 33vw"
+                sizes="(max-width: 767px) 0px, 33vw"
               />
               <div className="mt-3 bg-ink text-accent rounded-sm p-4">
                 <p className="font-mono text-[10px] tracking-[0.22em] uppercase opacity-70">
@@ -136,7 +138,7 @@ export default async function CoursHebdoSection() {
                 src="/adultes/_DSC0989.jpg"
                 alt="Atelier Terre Libre — cours adultes"
                 objectPosition="center 1%"
-                sizes="(max-width: 768px) 0px, 33vw"
+                sizes="(max-width: 767px) 0px, 33vw"
               />
             </div>
 

@@ -37,6 +37,8 @@ export default async function AnniversairesSection() {
           alt="Anniversaire d'enfants à l'Atelier Terre Libre"
           sizes="(max-width: 768px) 100vw, 40vw"
           className="mb-10 md:mb-14"
+          loading="eager"
+          fetchPriority="high"
         >
           <p className="font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-mute mb-3">
             Anniversaires
