@@ -57,7 +57,7 @@ export default function GalerieGrid({ photos }: Props) {
                 src={urlFor(photo.image).url()}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
+                sizes={SPANS[i % SPANS.length].includes("col-span-2") ? "50vw" : "25vw"}
                 alt={photo.caption || "Atelier Terre Libre"}
                 loading="lazy"
               />

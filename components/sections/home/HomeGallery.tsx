@@ -50,7 +50,7 @@ export default async function HomeGallery() {
                   src={urlFor(photo.image).url()}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1280px) 33vw, 25vw"
+                  sizes={DESKTOP_SPANS[i].includes("col-span-2") ? "33vw" : "17vw"}
                   alt={photo.caption || "Atelier Terre Libre"}
                 />
               </RevealItem>
